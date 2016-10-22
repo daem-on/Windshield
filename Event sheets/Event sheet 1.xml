@@ -2,5 +2,181 @@
 <c2eventsheet>
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>Event sheet 1</name>
-    <events />
+    <events>
+        <event-block sid="730121351967266">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="960466945028375" type="System" />
+            </conditions>
+            <actions>
+                <action behavior="Turret" id="1" name="Add object to target" sid="521380849664539" type="EnemyObject">
+                    <param id="0" name="Target">Player</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="875475727159177">
+            <conditions>
+                <condition id="2" name="Key is down" sid="176770806976257" type="Keyboard">
+                    <param id="0" name="Key">68 (D)</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="8Direction" id="7" name="Simulate control" sid="817103580994311" type="Player">
+                    <param id="0" name="Control">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="243038103085287">
+            <conditions>
+                <condition id="2" name="Key is down" sid="731434455227036" type="Keyboard">
+                    <param id="0" name="Key">83 (S)</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="8Direction" id="7" name="Simulate control" sid="836358749452780" type="Player">
+                    <param id="0" name="Control">3</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="661711494178417">
+            <conditions>
+                <condition id="2" name="Key is down" sid="780770470841863" type="Keyboard">
+                    <param id="0" name="Key">65 (A)</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="8Direction" id="7" name="Simulate control" sid="644775587523513" type="Player">
+                    <param id="0" name="Control">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="429233874172269">
+            <conditions>
+                <condition id="2" name="Key is down" sid="195185929804897" type="Keyboard">
+                    <param id="0" name="Key">87 (W)</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="8Direction" id="7" name="Simulate control" sid="925332496953974" type="Player">
+                    <param id="0" name="Control">2</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="211325916983370">
+            <conditions>
+                <condition id="0" name="On click" sid="453212028876009" type="Mouse">
+                    <param id="0" name="Mouse button">0</param>
+                    <param id="1" name="Click type">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Spawn another object" sid="799120237318398" type="Player">
+                    <param id="0" name="Object">Bullet</param>
+                    <param id="1" name="Layer">0</param>
+                    <param id="2" name="Image point">1</param>
+                </action>
+                <action id="-22" name="Set angle toward position" sid="833386346647891" type="Bullet">
+                    <param id="0" name="X">Mouse.X</param>
+                    <param id="1" name="Y">Mouse.Y</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="771638682898902">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="772451135171973" type="Bullet">
+                    <param id="0" name="Object">EnemyObject</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="118320055387416" type="Bullet" />
+                <action id="-12" name="Subtract from" sid="792925180286635" type="EnemyObject">
+                    <param id="0" name="Instance variable">Health</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="666712430667154">
+            <conditions>
+                <condition id="-7" name="Compare instance variable" sid="758665712428344" type="EnemyObject">
+                    <param id="0" name="Instance variable">Health</param>
+                    <param id="1" name="Comparison">3</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="911078519221214" type="EnemyObject" />
+            </actions>
+        </event-block>
+        <event-block sid="396287425837872">
+            <conditions>
+                <condition id="-21" name="Is between values" sid="602939048158892" type="System">
+                    <param id="0" name="Value">distance(EnemyObject.X, EnemyObject.Y, Player.X, Player.Y)</param>
+                    <param id="1" name="Lower bound">300</param>
+                    <param id="2" name="Upper bound">1000</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="556872251892126">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="533171337382235" type="System">
+                            <param id="0" name="Interval (seconds)">0.3</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Pathfinding" id="0" name="Find path" sid="581204453491992" type="EnemyObject">
+                            <param id="0" name="X">Player.X</param>
+                            <param id="1" name="Y">Player.y</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="616416598341466">
+            <conditions>
+                <condition behavior="Pathfinding" id="0" name="On path found" sid="365080698347554" type="EnemyObject" />
+            </conditions>
+            <actions>
+                <action behavior="Pathfinding" id="1" name="Move along path" sid="400655513555238" type="EnemyObject" />
+            </actions>
+        </event-block>
+        <event-block sid="529736836889064">
+            <conditions>
+                <condition id="-33" name="Pick by comparison" sid="688739907829515" type="System">
+                    <param id="0" name="Object">EnemyObject</param>
+                    <param id="1" name="Expression">distance(EnemyObject.X, EnemyObject.Y, Player.X, Player.Y)</param>
+                    <param id="2" name="Comparison">2</param>
+                    <param id="3" name="Value">200</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Pathfinding" id="2" name="Stop" sid="471336204524577" type="EnemyObject" />
+                <action behavior="Turret" id="5" name="Set enabled" sid="346326592313851" type="EnemyObject">
+                    <param id="0" name="State">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="768147071959027">
+            <conditions>
+                <condition behavior="Turret" id="1" name="On shoot" sid="361734287122084" type="EnemyObject" />
+            </conditions>
+            <actions>
+                <action id="0" name="Spawn another object" sid="441152387134023" type="EnemyObject">
+                    <param id="0" name="Object">EnemyBullet</param>
+                    <param id="1" name="Layer">0</param>
+                    <param id="2" name="Image point">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="962037894915247">
+            <conditions>
+                <condition id="-18" name="On created" sid="701781727686937" type="EnemyDraw" />
+            </conditions>
+            <actions>
+                <action behavior="Pin" id="0" name="Pin to object" sid="539624690116750" type="EnemyDraw">
+                    <param id="0" name="Pin to">EnemyObject</param>
+                    <param id="1" name="Mode">1</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
 </c2eventsheet>
