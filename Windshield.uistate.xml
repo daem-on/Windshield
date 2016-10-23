@@ -20,7 +20,10 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <property expanded="0" name="Window Size" />
         <property expanded="1" name="Configuration Settings" />
     </properties>
-    <families-expanded root="1" />
+    <families-expanded root="1">
+        <family expanded="0" name="IsoObject" />
+        <family expanded="0" name="Obstacles" />
+    </families-expanded>
     <folders-expanded>
         <folder expanded="1" path="object-folder/" />
         <folder expanded="1" path="layout-folder/" />
@@ -34,5 +37,11 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <folder expanded="1" path="animation-folder/Bullet/" />
         <folder expanded="1" path="animation-folder/EnemyBullet/" />
         <folder expanded="1" path="animation-folder/EnemyDraw/" />
+        <folder expanded="1" path="animation-folder/Wall/" />
+        <folder expanded="1" path="animation-folder/PlayerHitbox/" />
+        <folder expanded="1" path="animation-folder/WallDraw/" />
+        <folder expanded="1" path="animation-folder/HealthPlus/" />
+        <folder expanded="1" path="animation-folder/HealthMinus/" />
+        <folder expanded="1" path="animation-folder/ReloadBar/" />
     </folders-expanded>
 </c2uistate>

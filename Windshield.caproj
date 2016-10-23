@@ -17,13 +17,16 @@
         <plugin author="Scirra" id="TiledBg" version="1">Tiled Background</plugin>
     </used-plugins>
     <used-behaviors>
+        <behavior author="Scirra" id="Anchor" version="1">Anchor</behavior>
         <behavior author="Scirra" id="Bullet" version="1">Bullet</behavior>
         <behavior author="Scirra" id="EightDir" version="1">8 Direction</behavior>
+        <behavior author="Scirra" id="LOS" version="1">Line Of Sight</behavior>
         <behavior author="Scirra" id="Pathfinding" version="1">Pathfinding</behavior>
         <behavior author="Scirra" id="Pin" version="1">Pin</behavior>
         <behavior author="Scirra" id="Turret" version="1">Turret</behavior>
         <behavior author="Scirra" id="destroy" version="1">Destroy outside layout</behavior>
         <behavior author="Scirra" id="scrollto" version="1">Scroll To</behavior>
+        <behavior author="Scirra" id="solid" version="1">Solid</behavior>
     </used-behaviors>
     <used-effects />
     <configurations>
@@ -68,14 +71,19 @@
                     <behavior id="scrollto" />
                 </behavior-type>
             </behaviors>
+            <container>
+                <type>PlayerHitbox</type>
+                <type>Player</type>
+            </container>
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="936029790808993" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                    <frame duration="1" hotspotX="0.4375" hotspotY="0.9375">
+                        <image-point name="ShootFrom" x="0.46875" y="0.515625" />
                         <collision-poly>
-                            <point x="0.109375" y="0.0664063" />
-                            <point x="0.832031" y="0.0546875" />
-                            <point x="0.675781" y="0.919922" />
-                            <point x="0.191406" y="0.921875" />
+                            <point x="0.1875" y="0.796875" />
+                            <point x="0.65625" y="0.796875" />
+                            <point x="0.65625" y="0.9375" />
+                            <point x="0.1875" y="0.9375" />
                         </collision-poly>
                     </frame>
                 </animation>
@@ -88,6 +96,7 @@
             <plugin id="Sprite" />
             <instance-variables>
                 <instance-variable name="Health" sid="720330120072122" type="number" />
+                <instance-variable name="ShouldAttack" sid="767549209762992" type="boolean" />
             </instance-variables>
             <behaviors>
                 <behavior-type name="Turret" sid="232400191651613">
@@ -96,6 +105,9 @@
                 <behavior-type name="Pathfinding" sid="512239406354686">
                     <behavior id="Pathfinding" />
                 </behavior-type>
+                <behavior-type name="LineOfSight" sid="329297011612324">
+                    <behavior id="LOS" />
+                </behavior-type>
             </behaviors>
             <container>
                 <type>EnemyDraw</type>
@@ -103,12 +115,12 @@
             </container>
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="963765976101541" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.9375">
                         <collision-poly>
                             <point x="0.191406" y="0.0839844" />
-                            <point x="0.773438" y="0.0800781" />
-                            <point x="0.585938" y="0.923828" />
-                            <point x="0.269531" y="0.935547" />
+                            <point x="0.765625" y="0.0839844" />
+                            <point x="0.625" y="1" />
+                            <point x="0.335937" y="1" />
                         </collision-poly>
                     </frame>
                 </animation>
@@ -165,14 +177,7 @@
             </container>
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="337805977145870" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
-                        <collision-poly>
-                            <point x="0.191406" y="0.0820313" />
-                            <point x="0.773438" y="0.0800781" />
-                            <point x="0.585938" y="0.923828" />
-                            <point x="0.269531" y="0.935547" />
-                        </collision-poly>
-                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                 </animation>
             </animation-folder>
         </object-type>
@@ -180,8 +185,113 @@
             <plugin id="TiledBg" />
             <texture />
         </object-type>
+        <object-type name="Wall" sid="680377254006344">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Solid" sid="487310746392275">
+                    <behavior id="solid" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="402423212901786" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="1" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="PlayerHitbox" sid="701040198313679">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Pin" sid="445430667930957">
+                    <behavior id="Pin" />
+                </behavior-type>
+            </behaviors>
+            <container>
+                <type>PlayerHitbox</type>
+                <type>Player</type>
+            </container>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="903257630420808" speed="5">
+                    <frame duration="1" hotspotX="0.46875" hotspotY="0.5">
+                        <collision-poly>
+                            <point x="0.15625" y="0.136719" />
+                            <point x="0.792969" y="0.136719" />
+                            <point x="0.601563" y="0.9375" />
+                            <point x="0.289063" y="0.9375" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="WallDraw" sid="855909836129669">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="573520294521348" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="1" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="HealthPlus" sid="196215469039821">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Anchor" sid="631022903556565">
+                    <behavior id="Anchor" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="590943716149511" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="HealthMinus" sid="223447538550685">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Anchor" sid="594654204949106">
+                    <behavior id="Anchor" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="335024635273213" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="ReloadBar" sid="480551092582313">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Anchor" sid="995189961857432">
+                    <behavior id="Anchor" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="191656838327818" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="0.5" />
+                </animation>
+                <animation framecount="1" loop="0" name="Cooldown" pingpong="0" repeatcount="1" repeatto="0" sid="574279752554906" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="0.5" />
+                </animation>
+                <animation framecount="1" loop="0" name="Reload" pingpong="0" repeatcount="1" repeatto="0" sid="879714573522401" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
     </object-folder>
-    <families />
+    <families>
+        <family name="IsoObject" plugin-id="Sprite" sid="901443341344332">
+            <members>
+                <member>EnemyDraw</member>
+                <member>Player</member>
+                <member>WallDraw</member>
+            </members>
+        </family>
+        <family name="Obstacles" plugin-id="Sprite" sid="390692654131615">
+            <members>
+                <member>EnemyObject</member>
+                <member>Player</member>
+                <member>Wall</member>
+            </members>
+        </family>
+    </families>
     <layout-folder>
         <layout>Main.xml</layout>
         <layout>FirstCopies.xml</layout>
