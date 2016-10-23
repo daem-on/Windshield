@@ -96,7 +96,8 @@
             <plugin id="Sprite" />
             <instance-variables>
                 <instance-variable name="Health" sid="720330120072122" type="number" />
-                <instance-variable name="ShouldAttack" sid="767549209762992" type="boolean" />
+                <instance-variable name="Attacking" sid="767549209762992" type="boolean" />
+                <instance-variable name="Lost" sid="811061527281566" type="boolean" />
             </instance-variables>
             <behaviors>
                 <behavior-type name="Turret" sid="232400191651613">
@@ -275,10 +276,42 @@
                 </animation>
             </animation-folder>
         </object-type>
+        <object-type name="LastSeen" sid="854267790545488">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable comment="UID of parent enemy object" name="Parent" sid="556234101254952" type="number" />
+            </instance-variables>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="210847168412222" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Box" sid="255858186561235">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Solid" sid="512162740529517">
+                    <behavior id="solid" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="278563567438076" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="1">
+                        <collision-poly>
+                            <point x="0" y="0.5" />
+                            <point x="1" y="0.5" />
+                            <point x="1" y="1" />
+                            <point x="0" y="1" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
     </object-folder>
     <families>
         <family name="IsoObject" plugin-id="Sprite" sid="901443341344332">
             <members>
+                <member>Box</member>
                 <member>EnemyDraw</member>
                 <member>Player</member>
                 <member>WallDraw</member>

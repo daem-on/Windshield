@@ -122,7 +122,7 @@
             </conditions>
             <actions>
                 <action id="-13" name="Set boolean" sid="677164961836196" type="EnemyObject">
-                    <param id="0" name="Instance variable">ShouldAttack</param>
+                    <param id="0" name="Instance variable">Attacking</param>
                     <param id="1" name="Value">1</param>
                 </action>
             </actions>
@@ -132,13 +132,17 @@
                 <condition behavior="LineOfSight" id="0" inverted="1" name="Has LOS to object" sid="161717160325265" type="EnemyObject">
                     <param id="0" name="Object">PlayerHitbox</param>
                 </condition>
-                <condition id="-6" name="Every X seconds" sid="255458317379684" type="System">
-                    <param id="0" name="Interval (seconds)">3</param>
+                <condition id="-8" name="Is boolean instance variable set" sid="268578739410044" type="EnemyObject">
+                    <param id="0" name="Instance variable">Attacking</param>
                 </condition>
             </conditions>
             <actions>
+                <action id="-13" name="Set boolean" sid="637958139391416" type="EnemyObject">
+                    <param id="0" name="Instance variable">Lost</param>
+                    <param id="1" name="Value">1</param>
+                </action>
                 <action id="-13" name="Set boolean" sid="421890619238507" type="EnemyObject">
-                    <param id="0" name="Instance variable">ShouldAttack</param>
+                    <param id="0" name="Instance variable">Attacking</param>
                     <param id="1" name="Value">0</param>
                 </action>
             </actions>
@@ -151,7 +155,7 @@
                     <param id="2" name="Upper bound">1000</param>
                 </condition>
                 <condition id="-8" name="Is boolean instance variable set" sid="124352685297441" type="EnemyObject">
-                    <param id="0" name="Instance variable">ShouldAttack</param>
+                    <param id="0" name="Instance variable">Attacking</param>
                 </condition>
             </conditions>
             <actions />
@@ -171,6 +175,30 @@
                 </event-block>
             </sub-events>
         </event-block>
+        <event-block sid="190760083349093">
+            <conditions>
+                <condition id="-8" name="Is boolean instance variable set" sid="364537428837154" type="EnemyObject">
+                    <param id="0" name="Instance variable">Attacking</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Turret" id="5" name="Set enabled" sid="508764498531628" type="EnemyObject">
+                    <param id="0" name="State">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="288814148440472">
+            <conditions>
+                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="274781644379089" type="EnemyObject">
+                    <param id="0" name="Instance variable">Attacking</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Turret" id="5" name="Set enabled" sid="421372758079106" type="EnemyObject">
+                    <param id="0" name="State">0</param>
+                </action>
+            </actions>
+        </event-block>
         <event-block sid="616416598341466">
             <conditions>
                 <condition behavior="Pathfinding" id="0" name="On path found" sid="365080698347554" type="EnemyObject" />
@@ -186,6 +214,9 @@
                     <param id="1" name="Expression">distance(EnemyObject.X, EnemyObject.Y, Player.X, Player.Y)</param>
                     <param id="2" name="Comparison">2</param>
                     <param id="3" name="Value">200</param>
+                </condition>
+                <condition id="-8" name="Is boolean instance variable set" sid="592444954600482" type="EnemyObject">
+                    <param id="0" name="Instance variable">Attacking</param>
                 </condition>
             </conditions>
             <actions>
@@ -537,6 +568,78 @@
                     <param id="0" name="Instance variable">Health</param>
                     <param id="1" name="Value">0</param>
                 </action>
+            </actions>
+        </event-block>
+        <event-block sid="664420826559259">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="528131660806338" type="System" />
+                <condition id="-11" name="For Each" sid="146313654662713" type="System">
+                    <param id="0" name="Object">EnemyObject</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-3" name="Create object" sid="726352886198578" type="System">
+                    <param id="0" name="Object to create">LastSeen</param>
+                    <param id="1" name="Layer">0</param>
+                    <param id="2" name="X">0</param>
+                    <param id="3" name="Y">0</param>
+                </action>
+                <action id="-10" name="Set value" sid="217263760251840" type="LastSeen">
+                    <param id="0" name="Instance variable">Parent</param>
+                    <param id="1" name="Value">EnemyObject.UID</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="468910959475927">
+            <conditions>
+                <condition behavior="LineOfSight" id="0" name="Has LOS to object" sid="258743567576952" type="EnemyObject">
+                    <param id="0" name="Object">Player</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="411354298074828" type="LastSeen">
+                    <param id="0" name="Instance variable">Parent</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">EnemyObject.UID</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-4" name="Set position to another object" sid="409161577358379" type="LastSeen">
+                    <param id="0" name="Object">Player</param>
+                    <param id="1" name="Image point (optional)">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="835871753339875">
+            <conditions>
+                <condition id="-8" name="Is boolean instance variable set" sid="566128879568463" type="EnemyObject">
+                    <param id="0" name="Instance variable">Lost</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="598857109255530" type="LastSeen">
+                    <param id="0" name="Instance variable">Parent</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">EnemyObject.UID</param>
+                </condition>
+                <condition id="-6" name="Every X seconds" sid="339924683812004" type="System">
+                    <param id="0" name="Interval (seconds)">0.4</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Pathfinding" id="0" name="Find path" sid="654837710556482" type="EnemyObject">
+                    <param id="0" name="X">LastSeen.X</param>
+                    <param id="1" name="Y">LastSeen.Y</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="626500383349218">
+            <conditions>
+                <condition id="-19" name="On destroyed" sid="767292532880540" type="EnemyObject" />
+                <condition id="-7" name="Compare instance variable" sid="273750281837139" type="LastSeen">
+                    <param id="0" name="Instance variable">Parent</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">EnemyObject.UID</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="393616618186504" type="LastSeen" />
             </actions>
         </event-block>
     </events>
