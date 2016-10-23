@@ -14,6 +14,7 @@
         <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
         <plugin author="Scirra" id="Mouse" version="1">Mouse</plugin>
         <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
+        <plugin author="Scirra" id="TiledBg" version="1">Tiled Background</plugin>
     </used-plugins>
     <used-behaviors>
         <behavior author="Scirra" id="Bullet" version="1">Bullet</behavior>
@@ -53,6 +54,11 @@
             <plugin id="Sprite" />
             <instance-variables>
                 <instance-variable name="Health" sid="382430849352864" type="number" />
+                <instance-variable name="Reload" sid="517851300568736" type="number" />
+                <instance-variable name="Cooldown" sid="134920384424446" type="number" />
+                <instance-variable name="Reloading" sid="386966532920327" type="boolean" />
+                <instance-variable name="Handgun" sid="614433064278598" type="boolean" />
+                <instance-variable comment="1=Handgun" name="SelectedWeapon" sid="692959409158494" type="number" />
             </instance-variables>
             <behaviors>
                 <behavior-type name="8Direction" sid="463035132523908">
@@ -169,6 +175,10 @@
                     </frame>
                 </animation>
             </animation-folder>
+        </object-type>
+        <object-type name="GrassBackground" sid="173171023531953">
+            <plugin id="TiledBg" />
+            <texture />
         </object-type>
     </object-folder>
     <families />

@@ -29,6 +29,26 @@
             <blend-mode>0</blend-mode>
             <effect-fallback>0</effect-fallback>
             <instances>
+                <instance type="GrassBackground" uid="11">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <hotspot>Top-left</hotspot>
+                    </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>0</x>
+                        <y>0</y>
+                        <z>0</z>
+                        <width>2560</width>
+                        <height>1440</height>
+                        <depth>0</depth>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
                 <instance type="Player" uid="0">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
@@ -38,6 +58,11 @@
                     </properties>
                     <instance-variables>
                         <Health>5</Health>
+                        <Reload>8</Reload>
+                        <Cooldown>0</Cooldown>
+                        <Reloading>false</Reloading>
+                        <Handgun>true</Handgun>
+                        <SelectedWeapon>1</SelectedWeapon>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="8Direction">
@@ -114,8 +139,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>757</x>
-                        <y>198</y>
+                        <x>808</x>
+                        <y>140</y>
                         <z>0</z>
                         <width>64</width>
                         <height>128</height>

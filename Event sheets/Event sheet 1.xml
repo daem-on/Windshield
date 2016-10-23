@@ -61,25 +61,6 @@
                 </action>
             </actions>
         </event-block>
-        <event-block sid="211325916983370">
-            <conditions>
-                <condition id="0" name="On click" sid="453212028876009" type="Mouse">
-                    <param id="0" name="Mouse button">0</param>
-                    <param id="1" name="Click type">0</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="0" name="Spawn another object" sid="799120237318398" type="Player">
-                    <param id="0" name="Object">Bullet</param>
-                    <param id="1" name="Layer">0</param>
-                    <param id="2" name="Image point">1</param>
-                </action>
-                <action id="-22" name="Set angle toward position" sid="833386346647891" type="Bullet">
-                    <param id="0" name="X">Mouse.X</param>
-                    <param id="1" name="Y">Mouse.Y</param>
-                </action>
-            </actions>
-        </event-block>
         <event-block sid="771638682898902">
             <conditions>
                 <condition id="0" name="On collision with another object" sid="772451135171973" type="Bullet">
@@ -178,5 +159,137 @@
                 </action>
             </actions>
         </event-block>
+        <event-group description="" sid="576827803700915" title="Shooting">
+            <sub-events>
+                <comment>HANDGUN</comment>
+                <event-block sid="863416272917587">
+                    <conditions>
+                        <condition id="0" name="On click" sid="991957034262537" type="Mouse">
+                            <param id="0" name="Mouse button">0</param>
+                            <param id="1" name="Click type">0</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="120571759560056">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="801623273614980" type="Player">
+                                    <param id="0" name="Instance variable">SelectedWeapon</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                                <condition id="-8" name="Is boolean instance variable set" sid="501317843157298" type="Player">
+                                    <param id="0" name="Instance variable">Handgun</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="510028344177824">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="509940781000695" type="Player">
+                                            <param id="0" name="Instance variable">Cooldown</param>
+                                            <param id="1" name="Comparison">3</param>
+                                            <param id="2" name="Value">0</param>
+                                        </condition>
+                                        <condition id="-4" name="Trigger once while true" sid="387193392033347" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Spawn another object" sid="655070894414248" type="Player">
+                                            <param id="0" name="Object">Bullet</param>
+                                            <param id="1" name="Layer">LayerIndex(&quot;Game&quot;)</param>
+                                            <param id="2" name="Image point">3</param>
+                                        </action>
+                                        <action id="-22" name="Set angle toward position" sid="833386346647891" type="Bullet">
+                                            <param id="0" name="X">Mouse.X</param>
+                                            <param id="1" name="Y">Mouse.Y</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="921270798681181" type="Player">
+                                            <param id="0" name="Instance variable">Cooldown</param>
+                                            <param id="1" name="Value">0.4</param>
+                                        </action>
+                                        <action id="-12" name="Subtract from" sid="799242556555197" type="Player">
+                                            <param id="0" name="Instance variable">Reload</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <comment>Reloading the gun</comment>
+                <event-block sid="573706322382566">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="567064250598907" type="Player">
+                            <param id="0" name="Instance variable">Reload</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                        <condition id="-4" name="Trigger once while true" sid="690775666602858" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-13" name="Set boolean" sid="634755416640777" type="Player">
+                            <param id="0" name="Instance variable">Reloading</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="651055577260713">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="568527964196016" type="System">
+                            <param id="0" name="Interval (seconds)">0.1</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" sid="130427202125958" type="Player">
+                            <param id="0" name="Instance variable">Reload</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Value">8</param>
+                        </condition>
+                        <condition id="-8" name="Is boolean instance variable set" sid="239057227389754" type="Player">
+                            <param id="0" name="Instance variable">Reloading</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-11" name="Add to" sid="827394305759376" type="Player">
+                            <param id="0" name="Instance variable">Reload</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="243680542988660">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="276156023648041" type="Player">
+                            <param id="0" name="Instance variable">Reload</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">8</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-13" name="Set boolean" sid="469490339674806" type="Player">
+                            <param id="0" name="Instance variable">Reloading</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment>Manage cooldown</comment>
+                <event-block sid="557711972201042">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="350288120837339" type="System">
+                            <param id="0" name="Interval (seconds)">0.1</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" sid="139302247282229" type="Player">
+                            <param id="0" name="Instance variable">Cooldown</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-12" name="Subtract from" sid="433899721107785" type="Player">
+                            <param id="0" name="Instance variable">Cooldown</param>
+                            <param id="1" name="Value">0.1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
     </events>
 </c2eventsheet>
