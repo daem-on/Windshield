@@ -642,5 +642,25 @@
                 <action id="-9" name="Destroy" sid="393616618186504" type="LastSeen" />
             </actions>
         </event-block>
+        <event-block sid="994998385928394">
+            <conditions>
+                <condition behavior="Pathfinding" id="5" name="On arrived" sid="524344852716317" type="EnemyObject" />
+                <condition id="-8" name="Is boolean instance variable set" sid="358862507106394" type="EnemyObject">
+                    <param id="0" name="Instance variable">Lost</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="613302241507509" type="LastSeen">
+                    <param id="0" name="Instance variable">Parent</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">EnemyObject.UID</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="143374021498711" type="LastSeen" />
+                <action id="-13" name="Set boolean" sid="428350133068476" type="EnemyObject">
+                    <param id="0" name="Instance variable">Lost</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+            </actions>
+        </event-block>
     </events>
 </c2eventsheet>
