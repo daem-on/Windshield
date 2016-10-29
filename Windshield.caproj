@@ -38,6 +38,7 @@
     </window-size>
     <pixel-rounding>0</pixel-rounding>
     <preview-effects>1</preview-effects>
+    <first-layout>Main</first-layout>
     <use-loader-layout>0</use-loader-layout>
     <configuration-settings>
         <prop name="Clear background">Yes</prop>
@@ -61,7 +62,9 @@
                 <instance-variable name="Cooldown" sid="134920384424446" type="number" />
                 <instance-variable name="Reloading" sid="386966532920327" type="boolean" />
                 <instance-variable name="Handgun" sid="614433064278598" type="boolean" />
-                <instance-variable comment="1=Handgun" name="SelectedWeapon" sid="692959409158494" type="number" />
+                <instance-variable comment="1=Handgun 2=AK47" name="SelectedWeapon" sid="692959409158494" type="number" />
+                <instance-variable name="AK47" sid="386816360373668" type="boolean" />
+                <instance-variable comment="How many bullets until reload" name="Capacity" sid="317985186865042" type="number" />
             </instance-variables>
             <behaviors>
                 <behavior-type name="8Direction" sid="463035132523908">
@@ -77,13 +80,13 @@
             </container>
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="936029790808993" speed="5">
-                    <frame duration="1" hotspotX="0.4375" hotspotY="0.9375">
+                    <frame duration="1" hotspotX="0.4375" hotspotY="0.859375">
                         <image-point name="ShootFrom" x="0.46875" y="0.515625" />
                         <collision-poly>
-                            <point x="0.1875" y="0.796875" />
-                            <point x="0.65625" y="0.796875" />
-                            <point x="0.65625" y="0.9375" />
-                            <point x="0.1875" y="0.9375" />
+                            <point x="0.15625" y="0.796875" />
+                            <point x="0.6875" y="0.796875" />
+                            <point x="0.6875" y="0.9375" />
+                            <point x="0.15625" y="0.9375" />
                         </collision-poly>
                     </frame>
                 </animation>
@@ -116,19 +119,15 @@
             </container>
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="963765976101541" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.9375">
-                        <collision-poly>
-                            <point x="0.191406" y="0.0839844" />
-                            <point x="0.765625" y="0.0839844" />
-                            <point x="0.625" y="1" />
-                            <point x="0.335937" y="1" />
-                        </collision-poly>
-                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                 </animation>
             </animation-folder>
         </object-type>
         <object-type name="Bullet" sid="394886126543547">
             <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="Damage" sid="340066202433954" type="number" />
+            </instance-variables>
             <behaviors>
                 <behavior-type name="Bullet" sid="409680141654082">
                     <behavior id="Bullet" />
@@ -151,6 +150,9 @@
         </object-type>
         <object-type name="EnemyBullet" sid="524730594396231">
             <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="Damage" sid="301048689028319" type="number" />
+            </instance-variables>
             <behaviors>
                 <behavior-type name="Bullet" sid="940161946373677">
                     <behavior id="Bullet" />
@@ -167,6 +169,9 @@
         </object-type>
         <object-type name="EnemyDraw" sid="293320818255110">
             <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="Parent" sid="752024124090214" type="number" />
+            </instance-variables>
             <behaviors>
                 <behavior-type name="Pin" sid="114745139319608">
                     <behavior id="Pin" />
@@ -307,15 +312,119 @@
                 </animation>
             </animation-folder>
         </object-type>
+        <object-type name="Ground" sid="990214394950643">
+            <plugin id="TiledBg" />
+            <texture />
+        </object-type>
+        <object-type name="Shadow" sid="777949251446258">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="176045602299351" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="BoxShadow" sid="822188885881459">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="958280682903170" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Table" sid="288619421187720">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Solid" sid="117665396076584">
+                    <behavior id="solid" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="904938534128072" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="1">
+                        <collision-poly>
+                            <point x="0" y="0.5" />
+                            <point x="1" y="0.5" />
+                            <point x="1" y="1" />
+                            <point x="0" y="1" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+                <animation framecount="1" loop="0" name="Up" pingpong="0" repeatcount="1" repeatto="0" sid="309644111153620" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="1">
+                        <collision-poly>
+                            <point x="0" y="0.333333" />
+                            <point x="1" y="0.333333" />
+                            <point x="1" y="1" />
+                            <point x="0" y="1" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="MedKit" sid="336949360973624">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="381366907011867" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.4" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Can" sid="130759182485302">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="470591519136760" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.875">
+                        <collision-poly>
+                            <point x="0.1875" y="0.3125" />
+                            <point x="0.8125" y="0.3125" />
+                            <point x="0.8125" y="1" />
+                            <point x="0.1875" y="1" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+                <animation framecount="1" loop="0" name="Ruined1" pingpong="0" repeatcount="1" repeatto="0" sid="538742076308392" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.875" />
+                </animation>
+                <animation framecount="1" loop="0" name="Ruined2" pingpong="0" repeatcount="1" repeatto="0" sid="828638578975091" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.875">
+                        <collision-poly>
+                            <point x="1" y="1" />
+                            <point x="0" y="1" />
+                            <point x="0" y="0" />
+                            <point x="1" y="0" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+                <animation framecount="1" loop="0" name="Ruined3" pingpong="0" repeatcount="1" repeatto="0" sid="830424235334108" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.875">
+                        <collision-poly>
+                            <point x="1" y="1" />
+                            <point x="0" y="1" />
+                            <point x="0" y="0" />
+                            <point x="1" y="0" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
     </object-folder>
     <families>
         <family name="IsoObject" plugin-id="Sprite" sid="901443341344332">
             <members>
                 <member>Box</member>
+                <member>Bullet</member>
+                <member>Can</member>
+                <member>EnemyBullet</member>
                 <member>EnemyDraw</member>
+                <member>MedKit</member>
                 <member>Player</member>
+                <member>Table</member>
                 <member>WallDraw</member>
             </members>
+            <instance-variables>
+                <instance-variable name="OptionalHeight" sid="363057151418622" type="number" />
+            </instance-variables>
         </family>
         <family name="Obstacles" plugin-id="Sprite" sid="390692654131615">
             <members>

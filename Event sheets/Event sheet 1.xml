@@ -9,6 +9,14 @@
                 <condition id="-18" name="On created" sid="701781727686937" type="EnemyDraw" />
             </conditions>
             <actions>
+                <action id="-10" name="Set value" sid="514199908654860" type="EnemyDraw">
+                    <param id="0" name="Instance variable">Parent</param>
+                    <param id="1" name="Value">EnemyObject.UID</param>
+                </action>
+                <action id="-3" name="Set position" sid="508769249050415" type="EnemyDraw">
+                    <param id="0" name="X">EnemyObject.X</param>
+                    <param id="1" name="Y">EnemyObject.Y</param>
+                </action>
                 <action behavior="Pin" id="0" name="Pin to object" sid="539624690116750" type="EnemyDraw">
                     <param id="0" name="Pin to">EnemyObject</param>
                     <param id="1" name="Mode">1</param>
@@ -91,15 +99,20 @@
         <event-block sid="771638682898902">
             <conditions>
                 <condition id="0" name="On collision with another object" sid="772451135171973" type="Bullet">
-                    <param id="0" name="Object">EnemyObject</param>
+                    <param id="0" name="Object">EnemyDraw</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="836714550009763" type="EnemyDraw">
+                    <param id="0" name="Instance variable">Parent</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">EnemyObject.UID</param>
                 </condition>
             </conditions>
             <actions>
-                <action id="-9" name="Destroy" sid="118320055387416" type="Bullet" />
                 <action id="-12" name="Subtract from" sid="792925180286635" type="EnemyObject">
                     <param id="0" name="Instance variable">Health</param>
-                    <param id="1" name="Value">1</param>
+                    <param id="1" name="Value">Bullet.Damage</param>
                 </action>
+                <action id="-9" name="Destroy" sid="118320055387416" type="Bullet" />
             </actions>
         </event-block>
         <event-block sid="666712430667154">
@@ -149,31 +162,19 @@
         </event-block>
         <event-block sid="396287425837872">
             <conditions>
-                <condition id="-21" name="Is between values" sid="602939048158892" type="System">
-                    <param id="0" name="Value">distance(EnemyObject.X, EnemyObject.Y, Player.X, Player.Y)</param>
-                    <param id="1" name="Lower bound">300</param>
-                    <param id="2" name="Upper bound">1000</param>
-                </condition>
                 <condition id="-8" name="Is boolean instance variable set" sid="124352685297441" type="EnemyObject">
                     <param id="0" name="Instance variable">Attacking</param>
                 </condition>
+                <condition id="-6" name="Every X seconds" sid="533171337382235" type="System">
+                    <param id="0" name="Interval (seconds)">0.3</param>
+                </condition>
             </conditions>
-            <actions />
-            <sub-events>
-                <event-block sid="556872251892126">
-                    <conditions>
-                        <condition id="-6" name="Every X seconds" sid="533171337382235" type="System">
-                            <param id="0" name="Interval (seconds)">0.3</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action behavior="Pathfinding" id="0" name="Find path" sid="581204453491992" type="EnemyObject">
-                            <param id="0" name="X">Player.X</param>
-                            <param id="1" name="Y">Player.y</param>
-                        </action>
-                    </actions>
-                </event-block>
-            </sub-events>
+            <actions>
+                <action behavior="Pathfinding" id="0" name="Find path" sid="581204453491992" type="EnemyObject">
+                    <param id="0" name="X">Player.X</param>
+                    <param id="1" name="Y">Player.y</param>
+                </action>
+            </actions>
         </event-block>
         <event-block sid="190760083349093">
             <conditions>
@@ -243,13 +244,62 @@
                 <comment>HANDGUN</comment>
                 <event-block sid="863416272917587">
                     <conditions>
-                        <condition id="0" name="On click" sid="991957034262537" type="Mouse">
+                        <condition id="2" name="Mouse button is down" sid="991957034262537" type="Mouse">
                             <param id="0" name="Mouse button">0</param>
-                            <param id="1" name="Click type">0</param>
+                        </condition>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="775207376464158" type="Player">
+                            <param id="0" name="Instance variable">Reloading</param>
                         </condition>
                     </conditions>
                     <actions />
                     <sub-events>
+                        <event-block sid="350888224612843">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="918347147660087" type="Player">
+                                    <param id="0" name="Instance variable">SelectedWeapon</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">2</param>
+                                </condition>
+                                <condition id="-8" name="Is boolean instance variable set" sid="621085076800465" type="Player">
+                                    <param id="0" name="Instance variable">AK47</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="615233097799834">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="880361622463167" type="Player">
+                                            <param id="0" name="Instance variable">Cooldown</param>
+                                            <param id="1" name="Comparison">3</param>
+                                            <param id="2" name="Value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Spawn another object" sid="312931329809182" type="Player">
+                                            <param id="0" name="Object">Bullet</param>
+                                            <param id="1" name="Layer">LayerIndex(&quot;Game&quot;)</param>
+                                            <param id="2" name="Image point">1</param>
+                                        </action>
+                                        <action id="-22" name="Set angle toward position" sid="994673046842843" type="Bullet">
+                                            <param id="0" name="X">Mouse.X</param>
+                                            <param id="1" name="Y">Mouse.Y</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="458735697262996" type="Player">
+                                            <param id="0" name="Instance variable">Cooldown</param>
+                                            <param id="1" name="Value">0.07</param>
+                                        </action>
+                                        <action id="-12" name="Subtract from" sid="210993620294425" type="Player">
+                                            <param id="0" name="Instance variable">Reload</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="540893793858329" type="Bullet">
+                                            <param id="0" name="Instance variable">Damage</param>
+                                            <param id="1" name="Value">0.4</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
                         <event-block sid="120571759560056">
                             <conditions>
                                 <condition id="-7" name="Compare instance variable" sid="801623273614980" type="Player">
@@ -290,7 +340,17 @@
                                             <param id="0" name="Instance variable">Reload</param>
                                             <param id="1" name="Value">1</param>
                                         </action>
+                                        <action id="-10" name="Set value" sid="963748853850875" type="Bullet">
+                                            <param id="0" name="Instance variable">Damage</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
                                     </actions>
+                                    <sub-events>
+                                        <event-block sid="801038158266032">
+                                            <conditions />
+                                            <actions />
+                                        </event-block>
+                                    </sub-events>
                                 </event-block>
                             </sub-events>
                         </event-block>
@@ -321,7 +381,7 @@
                         <condition id="-7" name="Compare instance variable" sid="130427202125958" type="Player">
                             <param id="0" name="Instance variable">Reload</param>
                             <param id="1" name="Comparison">2</param>
-                            <param id="2" name="Value">6</param>
+                            <param id="2" name="Value">Player.Capacity</param>
                         </condition>
                         <condition id="-8" name="Is boolean instance variable set" sid="239057227389754" type="Player">
                             <param id="0" name="Instance variable">Reloading</param>
@@ -339,7 +399,7 @@
                         <condition id="-7" name="Compare instance variable" sid="276156023648041" type="Player">
                             <param id="0" name="Instance variable">Reload</param>
                             <param id="1" name="Comparison">5</param>
-                            <param id="2" name="Value">6</param>
+                            <param id="2" name="Value">Player.Capacity</param>
                         </condition>
                     </conditions>
                     <actions>
@@ -353,18 +413,18 @@
                 <event-block sid="557711972201042">
                     <conditions>
                         <condition id="-6" name="Every X seconds" sid="350288120837339" type="System">
-                            <param id="0" name="Interval (seconds)">0.1</param>
+                            <param id="0" name="Interval (seconds)">0.01</param>
                         </condition>
                         <condition id="-7" name="Compare instance variable" sid="139302247282229" type="Player">
                             <param id="0" name="Instance variable">Cooldown</param>
                             <param id="1" name="Comparison">4</param>
-                            <param id="2" name="Value">0</param>
+                            <param id="2" name="Value">-3</param>
                         </condition>
                     </conditions>
                     <actions>
                         <action id="-12" name="Subtract from" sid="433899721107785" type="Player">
                             <param id="0" name="Instance variable">Cooldown</param>
-                            <param id="1" name="Value">0.1</param>
+                            <param id="1" name="Value">0.01</param>
                         </action>
                     </actions>
                 </event-block>
@@ -379,7 +439,7 @@
             <actions>
                 <action id="-12" name="Subtract from" sid="707398038166435" type="Player">
                     <param id="0" name="Instance variable">Health</param>
-                    <param id="1" name="Value">1</param>
+                    <param id="1" name="Value">EnemyBullet.Damage</param>
                 </action>
                 <action id="-9" name="Destroy" sid="489828962045377" type="EnemyBullet" />
             </actions>
@@ -389,7 +449,7 @@
             <conditions>
                 <condition id="-24" name="For Each (ordered)" sid="288586332961735" type="System">
                     <param id="0" name="Object">IsoObject</param>
-                    <param id="1" name="Expression">IsoObject.Y</param>
+                    <param id="1" name="Expression">IsoObject.Y + IsoObject.OptionalHeight</param>
                     <param id="2" name="Order">0</param>
                 </condition>
             </conditions>
@@ -415,7 +475,13 @@
                     <actions>
                         <action id="-3" name="Create object" sid="659082078529857" type="System">
                             <param id="0" name="Object to create">WallDraw</param>
-                            <param id="1" name="Layer">0</param>
+                            <param id="1" name="Layer">LayerIndex(&quot;Game&quot;)</param>
+                            <param id="2" name="X">Wall.X + loopindex * 32</param>
+                            <param id="3" name="Y">Wall.Y</param>
+                        </action>
+                        <action id="-3" name="Create object" sid="360976280955113" type="System">
+                            <param id="0" name="Object to create">Shadow</param>
+                            <param id="1" name="Layer">LayerIndex(&quot;Shadow&quot;)</param>
                             <param id="2" name="X">Wall.X + loopindex * 32</param>
                             <param id="3" name="Y">Wall.Y</param>
                         </action>
@@ -430,7 +496,13 @@
                     <actions>
                         <action id="-3" name="Create object" sid="469669223797193" type="System">
                             <param id="0" name="Object to create">WallDraw</param>
-                            <param id="1" name="Layer">0</param>
+                            <param id="1" name="Layer">LayerIndex(&quot;Game&quot;)</param>
+                            <param id="2" name="X">Wall.X</param>
+                            <param id="3" name="Y">Wall.Y - loopindex * 32</param>
+                        </action>
+                        <action id="-3" name="Create object" sid="396042651461887" type="System">
+                            <param id="0" name="Object to create">Shadow</param>
+                            <param id="1" name="Layer">LayerIndex(&quot;Shadow&quot;)</param>
                             <param id="2" name="X">Wall.X</param>
                             <param id="3" name="Y">Wall.Y - loopindex * 32</param>
                         </action>
@@ -438,10 +510,28 @@
                 </event-block>
             </sub-events>
         </event-block>
+        <event-block sid="606188500441009">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="609687428106225" type="System" />
+                <condition id="-11" name="For Each" sid="421703708832868" type="System">
+                    <param id="0" name="Object">Box</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-3" name="Create object" sid="202274525099684" type="System">
+                    <param id="0" name="Object to create">BoxShadow</param>
+                    <param id="1" name="Layer">LayerIndex(&quot;Shadow&quot;)</param>
+                    <param id="2" name="X">Box.X</param>
+                    <param id="3" name="Y">Box.Y</param>
+                </action>
+            </actions>
+        </event-block>
         <event-block sid="222288764299784">
             <conditions>
-                <condition id="0" name="On collision with another object" sid="764686087442997" type="Bullet">
+                <condition id="9" name="Is overlapping at offset" sid="381895281463876" type="Bullet">
                     <param id="0" name="Object">Wall</param>
+                    <param id="1" name="Offset X">0</param>
+                    <param id="2" name="Offset Y">64</param>
                 </condition>
             </conditions>
             <actions>
@@ -450,8 +540,10 @@
         </event-block>
         <event-block sid="720904842904518">
             <conditions>
-                <condition id="0" name="On collision with another object" sid="279679882757495" type="EnemyBullet">
+                <condition id="9" name="Is overlapping at offset" sid="279679882757495" type="EnemyBullet">
                     <param id="0" name="Object">Wall</param>
+                    <param id="1" name="Offset X">0</param>
+                    <param id="2" name="Offset Y">64</param>
                 </condition>
             </conditions>
             <actions>
@@ -471,6 +563,9 @@
                 </condition>
             </conditions>
             <actions>
+                <action id="-16" name="Wait" sid="541538201685133" type="System">
+                    <param id="0" name="Seconds">0.02</param>
+                </action>
                 <action id="4" name="Set animation" sid="629470198047222" type="ReloadBar">
                     <param id="0" name="Animation">&quot;Default&quot;</param>
                     <param id="1" name="From">1</param>
@@ -511,7 +606,7 @@
             </conditions>
             <actions>
                 <action id="-5" name="Set width" sid="469814985230152" type="ReloadBar">
-                    <param id="0" name="Width">Player.Reload * 32</param>
+                    <param id="0" name="Width">Player.Reload  / Player.Capacity * 192</param>
                 </action>
             </actions>
         </event-block>
@@ -661,6 +756,83 @@
                     <param id="1" name="Value">0</param>
                 </action>
             </actions>
+        </event-block>
+        <event-block sid="745262843222648">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="365883797374346" type="PlayerHitbox">
+                    <param id="0" name="Object">MedKit</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="285395706075312">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="631970737784689" type="Player">
+                            <param id="0" name="Instance variable">Health</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Value">5</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="119616273983652" type="MedKit" />
+                        <action id="-11" name="Add to" sid="733651000644944" type="Player">
+                            <param id="0" name="Instance variable">Health</param>
+                            <param id="1" name="Value">2</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="928778056189985">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="859405965674745" type="Player">
+                            <param id="0" name="Instance variable">Health</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">5</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="695256615189522" type="MedKit" />
+                        <action id="-11" name="Add to" sid="660239512169355" type="Player">
+                            <param id="0" name="Instance variable">Health</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="333127200736332">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="464698626039023" type="Bullet">
+                    <param id="0" name="Object">Can</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="468164233206503" type="Bullet" />
+            </actions>
+            <sub-events>
+                <event-block sid="304709469448027">
+                    <conditions>
+                        <condition id="2" inverted="1" name="Is playing" sid="159102251242851" type="Can">
+                            <param id="0" name="Animation">&quot;Default&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="305775762011484" type="Can" />
+                    </actions>
+                </event-block>
+                <event-block sid="126694430919031">
+                    <conditions>
+                        <condition id="2" name="Is playing" sid="250338977868156" type="Can">
+                            <param id="0" name="Animation">&quot;Default&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="816226632914156" type="Can">
+                            <param id="0" name="Animation">&quot;Ruined&quot; &amp; choose(1,2,3)</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
         </event-block>
     </events>
 </c2eventsheet>
