@@ -11,9 +11,11 @@
     <saved-with-version>23300</saved-with-version>
     <used-plugins>
         <plugin author="Scirra" id="Browser" version="1">Browser</plugin>
+        <plugin author="Scirra" id="Function" version="1">Function</plugin>
         <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
         <plugin author="Scirra" id="Mouse" version="1">Mouse</plugin>
         <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
+        <plugin author="Scirra" id="Text" version="1">Text</plugin>
         <plugin author="Scirra" id="TiledBg" version="1">Tiled Background</plugin>
     </used-plugins>
     <used-behaviors>
@@ -61,10 +63,9 @@
                 <instance-variable name="Reload" sid="517851300568736" type="number" />
                 <instance-variable name="Cooldown" sid="134920384424446" type="number" />
                 <instance-variable name="Reloading" sid="386966532920327" type="boolean" />
-                <instance-variable name="Handgun" sid="614433064278598" type="boolean" />
                 <instance-variable comment="1=Handgun 2=AK47" name="SelectedWeapon" sid="692959409158494" type="number" />
-                <instance-variable name="AK47" sid="386816360373668" type="boolean" />
                 <instance-variable comment="How many bullets until reload" name="Capacity" sid="317985186865042" type="number" />
+                <instance-variable comment="Sort of like with setbit" name="Inventory" sid="195358806355051" type="string" />
             </instance-variables>
             <behaviors>
                 <behavior-type name="8Direction" sid="463035132523908">
@@ -408,6 +409,125 @@
                 </animation>
             </animation-folder>
         </object-type>
+        <object-type name="Tree" sid="328945331958129">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Solid" sid="957971350228209">
+                    <behavior id="solid" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="180680884134342" speed="5">
+                    <frame duration="1" hotspotX="0.46875" hotspotY="0.96875">
+                        <collision-poly>
+                            <point x="0.40625" y="0.9375" />
+                            <point x="0.5625" y="0.9375" />
+                            <point x="0.5625" y="0.96875" />
+                            <point x="0.40625" y="0.96875" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+                <animation framecount="1" loop="0" name="Default2" pingpong="0" repeatcount="1" repeatto="0" sid="402799833877602" speed="5">
+                    <frame duration="1" hotspotX="0.46875" hotspotY="0.96875">
+                        <collision-poly>
+                            <point x="0.40625" y="0.9375" />
+                            <point x="0.5625" y="0.9375" />
+                            <point x="0.5625" y="0.96875" />
+                            <point x="0.40625" y="0.96875" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="WeaponSelect" sid="725653657859386">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Pistol" pingpong="0" repeatcount="1" repeatto="0" sid="712484703009420" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+                <animation framecount="1" loop="0" name="AK" pingpong="0" repeatcount="1" repeatto="0" sid="792060108942980" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+                <animation framecount="1" loop="0" name="Shotgun" pingpong="0" repeatcount="1" repeatto="0" sid="597216302673489" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="TransBackground" sid="251637069070098">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="602808228304504" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Function" sid="411070181152985">
+            <plugin id="Function" />
+        </object-type>
+        <object-type name="Selected" sid="596461468174460">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="730147260771887" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Number" sid="896418178173816">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="Door" sid="736843109999025">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="Opened" sid="621372852698497" type="boolean" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="Solid" sid="376848797301567">
+                    <behavior id="solid" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="861700657629963" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="1">
+                        <collision-poly>
+                            <point x="0" y="0.5" />
+                            <point x="0.5" y="0.5" />
+                            <point x="0.5" y="1" />
+                            <point x="0" y="1" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+                <animation framecount="1" loop="0" name="Up" pingpong="0" repeatcount="1" repeatto="0" sid="700557203581031" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="1">
+                        <collision-poly>
+                            <point x="0" y="0.84375" />
+                            <point x="1" y="0.84375" />
+                            <point x="1" y="1" />
+                            <point x="0" y="1" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+                <animation framecount="1" loop="0" name="Right" pingpong="0" repeatcount="1" repeatto="0" sid="111247042079297" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="1">
+                        <collision-poly>
+                            <point x="0.5" y="0.5" />
+                            <point x="1" y="0.5" />
+                            <point x="1" y="1" />
+                            <point x="0.5" y="1" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+                <animation framecount="1" loop="0" name="Upper" pingpong="0" repeatcount="1" repeatto="0" sid="522852453100683" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="1">
+                        <collision-poly>
+                            <point x="0" y="0.72973" />
+                            <point x="1" y="0.72973" />
+                            <point x="1" y="0.864865" />
+                            <point x="0" y="0.864865" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
     </object-folder>
     <families>
         <family name="IsoObject" plugin-id="Sprite" sid="901443341344332">
@@ -415,11 +535,13 @@
                 <member>Box</member>
                 <member>Bullet</member>
                 <member>Can</member>
+                <member>Door</member>
                 <member>EnemyBullet</member>
                 <member>EnemyDraw</member>
                 <member>MedKit</member>
                 <member>Player</member>
                 <member>Table</member>
+                <member>Tree</member>
                 <member>WallDraw</member>
             </members>
             <instance-variables>
@@ -428,8 +550,12 @@
         </family>
         <family name="Obstacles" plugin-id="Sprite" sid="390692654131615">
             <members>
+                <member>Box</member>
+                <member>Door</member>
                 <member>EnemyObject</member>
                 <member>Player</member>
+                <member>Table</member>
+                <member>Tree</member>
                 <member>Wall</member>
             </members>
         </family>
@@ -445,6 +571,7 @@
         <global-instance type="Keyboard" uid="1" />
         <global-instance type="Mouse" uid="4" />
         <global-instance type="Browser" uid="8" />
+        <global-instance type="Function" uid="98" />
     </global-instances>
     <sounds-folder />
     <music-folder />
