@@ -194,6 +194,9 @@
         </object-type>
         <object-type name="Wall" sid="680377254006344">
             <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="Animation" sid="931044036307792" type="string" />
+            </instance-variables>
             <behaviors>
                 <behavior-type name="Solid" sid="487310746392275">
                     <behavior id="solid" />
@@ -232,7 +235,16 @@
         <object-type name="WallDraw" sid="855909836129669">
             <plugin id="Sprite" />
             <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="573520294521348" speed="5">
+                <animation framecount="1" loop="0" name="Concrete" pingpong="0" repeatcount="1" repeatto="0" sid="573520294521348" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="1" />
+                </animation>
+                <animation framecount="1" loop="0" name="White" pingpong="0" repeatcount="1" repeatto="0" sid="962965984883683" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="1" />
+                </animation>
+                <animation framecount="1" loop="0" name="Wood" pingpong="0" repeatcount="1" repeatto="0" sid="682906000321557" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="1" />
+                </animation>
+                <animation framecount="1" loop="0" name="BlueLine" pingpong="0" repeatcount="1" repeatto="0" sid="884077952271663" speed="5">
                     <frame duration="1" hotspotX="0" hotspotY="1" />
                 </animation>
             </animation-folder>
@@ -313,7 +325,7 @@
                 </animation>
             </animation-folder>
         </object-type>
-        <object-type name="Ground" sid="990214394950643">
+        <object-type name="ConcreteGround" sid="990214394950643">
             <plugin id="TiledBg" />
             <texture />
         </object-type>
@@ -528,6 +540,10 @@
                 </animation>
             </animation-folder>
         </object-type>
+        <object-type name="WoodGround" sid="199264855451272">
+            <plugin id="TiledBg" />
+            <texture />
+        </object-type>
     </object-folder>
     <families>
         <family name="IsoObject" plugin-id="Sprite" sid="901443341344332">
@@ -553,7 +569,6 @@
                 <member>Box</member>
                 <member>Door</member>
                 <member>EnemyObject</member>
-                <member>Player</member>
                 <member>Table</member>
                 <member>Tree</member>
                 <member>Wall</member>

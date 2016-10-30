@@ -157,6 +157,34 @@
                         </action>
                     </actions>
                 </event-block>
+                <event-block sid="227911111657770">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="147363547658037" type="Keyboard">
+                            <param id="0" name="Key">16 (Shift)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="8Direction" id="4" name="Set max speed" sid="507372535365945" type="Player">
+                            <param id="0" name="Max Speed">600</param>
+                        </action>
+                        <action id="11" name="Set collisions enabled" sid="670955485317088" type="Player">
+                            <param id="0" name="Collisions">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="923609169537550">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="922388881841059" type="System" />
+                    </conditions>
+                    <actions>
+                        <action behavior="8Direction" id="4" name="Set max speed" sid="843399173827402" type="Player">
+                            <param id="0" name="Max Speed">200</param>
+                        </action>
+                        <action id="11" name="Set collisions enabled" sid="372689819891170" type="Player">
+                            <param id="0" name="Collisions">1</param>
+                        </action>
+                    </actions>
+                </event-block>
             </sub-events>
         </event-group>
         <event-group description="" sid="112128797093840" title="AI">
@@ -726,6 +754,10 @@
                                     <param id="2" name="X">Wall.X + loopindex * 32</param>
                                     <param id="3" name="Y">Wall.Y</param>
                                 </action>
+                                <action id="4" name="Set animation" sid="915186999728033" type="WallDraw">
+                                    <param id="0" name="Animation">wall.Animation</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
                             </actions>
                         </event-block>
                         <event-block sid="100417310494503">
@@ -746,6 +778,10 @@
                                     <param id="1" name="Layer">LayerIndex(&quot;Shadow&quot;)</param>
                                     <param id="2" name="X">Wall.X</param>
                                     <param id="3" name="Y">Wall.Y - loopindex * 32</param>
+                                </action>
+                                <action id="4" name="Set animation" sid="757347719986008" type="WallDraw">
+                                    <param id="0" name="Animation">wall.Animation</param>
+                                    <param id="1" name="From">1</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -771,7 +807,7 @@
         </event-group>
         <event-group description="" sid="163795944872153" title="World">
             <sub-events>
-                <event-block sid="222288764299784">
+                <event-block any="1" sid="222288764299784">
                     <conditions>
                         <condition id="9" name="Is overlapping at offset" sid="381895281463876" type="Bullet">
                             <param id="0" name="Object">Wall</param>
@@ -783,7 +819,17 @@
                         <action id="-9" name="Destroy" sid="900408388525086" type="Bullet" />
                     </actions>
                 </event-block>
-                <event-block sid="720904842904518">
+                <event-block sid="243836205165829">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="259623370728394" type="Bullet">
+                            <param id="0" name="Object">Obstacles</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="520171210287367" type="Bullet" />
+                    </actions>
+                </event-block>
+                <event-block any="1" sid="720904842904518">
                     <conditions>
                         <condition id="9" name="Is overlapping at offset" sid="279679882757495" type="EnemyBullet">
                             <param id="0" name="Object">Wall</param>
@@ -793,6 +839,16 @@
                     </conditions>
                     <actions>
                         <action id="-9" name="Destroy" sid="531050230645481" type="EnemyBullet" />
+                    </actions>
+                </event-block>
+                <event-block sid="783374582288839">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="180694235251522" type="Bullet">
+                            <param id="0" name="Object">Obstacles</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="523894389032027" type="EnemyBullet" />
                     </actions>
                 </event-block>
                 <event-block sid="333127200736332">
