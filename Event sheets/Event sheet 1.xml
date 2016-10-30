@@ -17,6 +17,10 @@
                         <action behavior="Turret" id="1" name="Add object to target" sid="521380849664539" type="EnemyObject">
                             <param id="0" name="Target">PlayerHitbox</param>
                         </action>
+                        <action id="0" name="Call function" sid="708168667055385" type="Function">
+                            <param id="0" name="Name">&quot;Message&quot;</param>
+                            <param id="1" name="Parameter {n}">&quot;[b]Fuck yeah:[/b] Hello world&quot;</param>
+                        </action>
                     </actions>
                 </event-block>
                 <event-block sid="962037894915247">
@@ -182,6 +186,29 @@
                         </action>
                         <action id="11" name="Set collisions enabled" sid="372689819891170" type="Player">
                             <param id="0" name="Collisions">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="348946981930195">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="706384118170691" type="Keyboard">
+                            <param id="0" name="Key">13 (Return)</param>
+                        </condition>
+                        <condition id="-8" name="Is boolean instance variable set" sid="325252195543816" type="Player">
+                            <param id="0" name="Instance variable">MessageWait</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-13" name="Set boolean" sid="647377729735883" type="Player">
+                            <param id="0" name="Instance variable">MessageWait</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-13" name="Set time scale" sid="665809465880960" type="System">
+                            <param id="0" name="Time scale">1</param>
+                        </action>
+                        <action id="-4" name="Set layer visible" sid="554808221380645" type="System">
+                            <param id="0" name="Layer">LayerIndex(&quot;Message&quot;)</param>
+                            <param id="1" name="Visibility">0</param>
                         </action>
                     </actions>
                 </event-block>
@@ -487,7 +514,7 @@
                                         </action>
                                         <action id="-10" name="Set value" sid="963748853850875" type="Bullet">
                                             <param id="0" name="Instance variable">Damage</param>
-                                            <param id="1" name="Value">1</param>
+                                            <param id="1" name="Value">2</param>
                                         </action>
                                         <action id="-22" name="Set angle toward position" sid="833386346647891" type="Bullet">
                                             <param id="0" name="X">Mouse.X</param>
@@ -1191,6 +1218,33 @@
                             </sub-events>
                         </event-block>
                     </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="479556643735985" title="Message">
+            <sub-events>
+                <event-block sid="997219180850569">
+                    <conditions>
+                        <condition id="0" name="On function" sid="232709832800961" type="Function">
+                            <param id="0" name="Name">&quot;Message&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-13" name="Set time scale" sid="748751469273002" type="System">
+                            <param id="0" name="Time scale">0</param>
+                        </action>
+                        <action id="-13" name="Set boolean" sid="571139257783067" type="Player">
+                            <param id="0" name="Instance variable">MessageWait</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="0" name="Set text" sid="105802241282647" type="BBcodeText">
+                            <param id="0" name="Text">Function.Param(0)</param>
+                        </action>
+                        <action id="-4" name="Set layer visible" sid="604624098546394" type="System">
+                            <param id="0" name="Layer">LayerIndex(&quot;Message&quot;)</param>
+                            <param id="1" name="Visibility">1</param>
+                        </action>
+                    </actions>
                 </event-block>
             </sub-events>
         </event-group>

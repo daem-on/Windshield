@@ -17,6 +17,7 @@
         <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
         <plugin author="Scirra" id="Text" version="1">Text</plugin>
         <plugin author="Scirra" id="TiledBg" version="1">Tiled Background</plugin>
+        <plugin author="Rex.Rainbow" id="rex_bbcodeText" version="0.100000001">BBcode Text</plugin>
     </used-plugins>
     <used-behaviors>
         <behavior author="Scirra" id="Anchor" version="1">Anchor</behavior>
@@ -26,6 +27,7 @@
         <behavior author="Scirra" id="Pathfinding" version="1">Pathfinding</behavior>
         <behavior author="Scirra" id="Pin" version="1">Pin</behavior>
         <behavior author="Scirra" id="Turret" version="1">Turret</behavior>
+        <behavior author="Scirra" id="bound" version="1">Bound to layout</behavior>
         <behavior author="Scirra" id="destroy" version="1">Destroy outside layout</behavior>
         <behavior author="Scirra" id="scrollto" version="1">Scroll To</behavior>
         <behavior author="Scirra" id="solid" version="1">Solid</behavior>
@@ -66,6 +68,7 @@
                 <instance-variable comment="1=Handgun 2=AK47" name="SelectedWeapon" sid="692959409158494" type="number" />
                 <instance-variable comment="How many bullets until reload" name="Capacity" sid="317985186865042" type="number" />
                 <instance-variable comment="Sort of like with setbit" name="Inventory" sid="195358806355051" type="string" />
+                <instance-variable name="MessageWait" sid="463774411448338" type="boolean" />
             </instance-variables>
             <behaviors>
                 <behavior-type name="8Direction" sid="463035132523908">
@@ -74,6 +77,9 @@
                 <behavior-type name="ScrollTo" sid="547533043661803">
                     <behavior id="scrollto" />
                 </behavior-type>
+                <behavior-type name="BoundToLayout" sid="968952488938384">
+                    <behavior id="bound" />
+                </behavior-type>
             </behaviors>
             <container>
                 <type>PlayerHitbox</type>
@@ -81,6 +87,17 @@
             </container>
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="936029790808993" speed="5">
+                    <frame duration="1" hotspotX="0.4375" hotspotY="0.859375">
+                        <image-point name="ShootFrom" x="0.46875" y="0.515625" />
+                        <collision-poly>
+                            <point x="0.15625" y="0.796875" />
+                            <point x="0.6875" y="0.796875" />
+                            <point x="0.6875" y="0.9375" />
+                            <point x="0.15625" y="0.9375" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+                <animation framecount="1" loop="0" name="Real" pingpong="0" repeatcount="1" repeatto="0" sid="291728792653403" speed="5">
                     <frame duration="1" hotspotX="0.4375" hotspotY="0.859375">
                         <image-point name="ShootFrom" x="0.46875" y="0.515625" />
                         <collision-poly>
@@ -184,6 +201,9 @@
             </container>
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="337805977145870" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+                <animation framecount="1" loop="0" name="Real" pingpong="0" repeatcount="1" repeatto="0" sid="529186817576605" speed="5">
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                 </animation>
             </animation-folder>
@@ -544,10 +564,42 @@
             <plugin id="TiledBg" />
             <texture />
         </object-type>
+        <object-type name="Bag" sid="509427514009081">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Solid" sid="236868337123728">
+                    <behavior id="solid" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="154717601682052" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="1">
+                        <collision-poly>
+                            <point x="0" y="0.5" />
+                            <point x="1" y="0.5" />
+                            <point x="1" y="1" />
+                            <point x="0" y="1" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="TextBack" sid="978323931778557">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="496432011837467" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="BBcodeText" sid="836024957034180">
+            <plugin id="rex_bbcodeText" />
+        </object-type>
     </object-folder>
     <families>
         <family name="IsoObject" plugin-id="Sprite" sid="901443341344332">
             <members>
+                <member>Bag</member>
                 <member>Box</member>
                 <member>Bullet</member>
                 <member>Can</member>
@@ -566,9 +618,9 @@
         </family>
         <family name="Obstacles" plugin-id="Sprite" sid="390692654131615">
             <members>
+                <member>Bag</member>
                 <member>Box</member>
                 <member>Door</member>
-                <member>EnemyObject</member>
                 <member>Table</member>
                 <member>Tree</member>
                 <member>Wall</member>

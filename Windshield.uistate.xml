@@ -55,5 +55,7 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <folder expanded="1" path="animation-folder/TransBackground/" />
         <folder expanded="1" path="animation-folder/Selected/" />
         <folder expanded="1" path="animation-folder/Door/" />
+        <folder expanded="1" path="animation-folder/Bag/" />
+        <folder expanded="1" path="animation-folder/TextBack/" />
     </folders-expanded>
 </c2uistate>
