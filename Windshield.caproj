@@ -119,6 +119,8 @@
                 <instance-variable name="Health" sid="720330120072122" type="number" />
                 <instance-variable name="Attacking" sid="767549209762992" type="boolean" />
                 <instance-variable name="Lost" sid="811061527281566" type="boolean" />
+                <instance-variable name="Shooting" sid="761144062804414" type="boolean" />
+                <instance-variable name="Walking" sid="479322601436824" type="boolean" />
             </instance-variables>
             <behaviors>
                 <behavior-type name="Turret" sid="232400191651613">
@@ -137,6 +139,9 @@
             </container>
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="963765976101541" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+                <animation framecount="1" loop="0" name="Debug" pingpong="0" repeatcount="1" repeatto="0" sid="159368823364061" speed="5">
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                 </animation>
             </animation-folder>
@@ -594,6 +599,14 @@
         </object-type>
         <object-type name="BBcodeText" sid="836024957034180">
             <plugin id="rex_bbcodeText" />
+        </object-type>
+        <object-type name="Trigger" sid="370464508580184">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="572259190464213" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
         </object-type>
     </object-folder>
     <families>

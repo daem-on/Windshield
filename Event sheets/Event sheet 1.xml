@@ -17,9 +17,13 @@
                         <action behavior="Turret" id="1" name="Add object to target" sid="521380849664539" type="EnemyObject">
                             <param id="0" name="Target">PlayerHitbox</param>
                         </action>
+                        <action id="5" name="Set web font" sid="155109115880893" type="BBcodeText">
+                            <param id="0" name="Family name">&quot;Open Sans&quot;</param>
+                            <param id="1" name="CSS URL">&quot;https://fonts.googleapis.com/css?family=Open+Sans&quot;</param>
+                        </action>
                         <action id="0" name="Call function" sid="708168667055385" type="Function">
                             <param id="0" name="Name">&quot;Message&quot;</param>
-                            <param id="1" name="Parameter {n}">&quot;[b]Fuck yeah:[/b] Hello world&quot;</param>
+                            <param id="1" name="Parameter {n}">&quot;[b]Controls:[/b] [i]WASD[/i], [i]Left click[/i] to shoot, [i]R[/i] to reload, [i]1-3[/i] to switch weapon. Return to continue.&quot;</param>
                         </action>
                     </actions>
                 </event-block>
@@ -216,6 +220,52 @@
         </event-group>
         <event-group description="" sid="112128797093840" title="AI">
             <sub-events>
+                <event-block sid="893776633222151">
+                    <conditions>
+                        <condition id="-8" name="Is boolean instance variable set" sid="520401205689953" type="EnemyObject">
+                            <param id="0" name="Instance variable">Shooting</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Turret" id="5" name="Set enabled" sid="346326592313851" type="EnemyObject">
+                            <param id="0" name="State">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="134227597759428">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="506029085648951" type="System" />
+                    </conditions>
+                    <actions>
+                        <action behavior="Turret" id="5" name="Set enabled" sid="339333219295148" type="EnemyObject">
+                            <param id="0" name="State">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="709081798934751">
+                    <conditions>
+                        <condition id="-8" name="Is boolean instance variable set" sid="255578755506329" type="EnemyObject">
+                            <param id="0" name="Instance variable">Walking</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="826143095146649" type="EnemyObject">
+                            <param id="0" name="Animation">&quot;Debug&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="851668998832734">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="790837723511536" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="635460660700885" type="EnemyObject">
+                            <param id="0" name="Animation">&quot;Default&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
                 <event-block sid="115743924893741">
                     <conditions>
                         <condition behavior="LineOfSight" id="0" name="Has LOS to object" sid="237030054217541" type="EnemyObject">
@@ -226,6 +276,23 @@
                         <action id="-13" name="Set boolean" sid="677164961836196" type="EnemyObject">
                             <param id="0" name="Instance variable">Attacking</param>
                             <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="853302487810476">
+                    <conditions>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="590325713581045" type="EnemyObject">
+                            <param id="0" name="Instance variable">Attacking</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-13" name="Set boolean" sid="274234715032746" type="EnemyObject">
+                            <param id="0" name="Instance variable">Walking</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-13" name="Set boolean" sid="846571619349948" type="EnemyObject">
+                            <param id="0" name="Instance variable">Shooting</param>
+                            <param id="1" name="Value">0</param>
                         </action>
                     </actions>
                 </event-block>
@@ -247,12 +314,22 @@
                             <param id="0" name="Instance variable">Attacking</param>
                             <param id="1" name="Value">0</param>
                         </action>
+                        <action id="-13" name="Set boolean" sid="677199504114477" type="EnemyObject">
+                            <param id="0" name="Instance variable">Shooting</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-16" name="Set opacity" sid="898710160643543" type="EnemyObject">
+                            <param id="0" name="Opacity">100</param>
+                        </action>
                     </actions>
                 </event-block>
                 <event-block sid="396287425837872">
                     <conditions>
                         <condition id="-8" name="Is boolean instance variable set" sid="124352685297441" type="EnemyObject">
                             <param id="0" name="Instance variable">Attacking</param>
+                        </condition>
+                        <condition id="-8" name="Is boolean instance variable set" sid="338930752664953" type="EnemyObject">
+                            <param id="0" name="Instance variable">Walking</param>
                         </condition>
                         <condition id="-6" name="Every X seconds" sid="533171337382235" type="System">
                             <param id="0" name="Interval (seconds)">0.3</param>
@@ -265,27 +342,19 @@
                         </action>
                     </actions>
                 </event-block>
-                <event-block sid="190760083349093">
+                <event-block sid="271573314778476">
                     <conditions>
-                        <condition id="-8" name="Is boolean instance variable set" sid="364537428837154" type="EnemyObject">
-                            <param id="0" name="Instance variable">Attacking</param>
+                        <condition id="1" name="Is overlapping another object" sid="484617419726683" type="EnemyObject">
+                            <param id="0" name="Object">EnemyObject</param>
+                        </condition>
+                        <condition id="-6" name="Every X seconds" sid="139719327745327" type="System">
+                            <param id="0" name="Interval (seconds)">0.3</param>
                         </condition>
                     </conditions>
                     <actions>
-                        <action behavior="Turret" id="5" name="Set enabled" sid="508764498531628" type="EnemyObject">
-                            <param id="0" name="State">1</param>
-                        </action>
-                    </actions>
-                </event-block>
-                <event-block sid="288814148440472">
-                    <conditions>
-                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="274781644379089" type="EnemyObject">
-                            <param id="0" name="Instance variable">Attacking</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action behavior="Turret" id="5" name="Set enabled" sid="421372758079106" type="EnemyObject">
-                            <param id="0" name="State">0</param>
+                        <action behavior="Pathfinding" id="0" name="Find path" sid="158018584430572" type="EnemyObject">
+                            <param id="0" name="X">EnemyObject.X + 150 * choose(-1,1)</param>
+                            <param id="1" name="Y">EnemyObject.Y + 150 * choose(-1,1)</param>
                         </action>
                     </actions>
                 </event-block>
@@ -293,9 +362,32 @@
                     <conditions>
                         <condition behavior="Pathfinding" id="0" name="On path found" sid="365080698347554" type="EnemyObject" />
                     </conditions>
-                    <actions>
-                        <action behavior="Pathfinding" id="1" name="Move along path" sid="400655513555238" type="EnemyObject" />
-                    </actions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="400776399150555">
+                            <conditions>
+                                <condition id="-8" name="Is boolean instance variable set" sid="391827090686076" type="EnemyObject">
+                                    <param id="0" name="Instance variable">Attacking</param>
+                                </condition>
+                                <condition id="-8" name="Is boolean instance variable set" sid="356549495171000" type="EnemyObject">
+                                    <param id="0" name="Instance variable">Walking</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Pathfinding" id="1" name="Move along path" sid="400655513555238" type="EnemyObject" />
+                            </actions>
+                        </event-block>
+                        <event-block sid="568549692464389">
+                            <conditions>
+                                <condition id="-8" name="Is boolean instance variable set" sid="890580140719900" type="EnemyObject">
+                                    <param id="0" name="Instance variable">Lost</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Pathfinding" id="1" name="Move along path" sid="772188852986560" type="EnemyObject" />
+                            </actions>
+                        </event-block>
+                    </sub-events>
                 </event-block>
                 <event-block sid="529736836889064">
                     <conditions>
@@ -303,16 +395,71 @@
                             <param id="0" name="Object">EnemyObject</param>
                             <param id="1" name="Expression">distance(EnemyObject.X, EnemyObject.Y, Player.X, Player.Y)</param>
                             <param id="2" name="Comparison">2</param>
+                            <param id="3" name="Value">400</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="639144771209495">
+                            <conditions>
+                                <condition id="-8" name="Is boolean instance variable set" sid="592444954600482" type="EnemyObject">
+                                    <param id="0" name="Instance variable">Attacking</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-13" name="Set boolean" sid="220434530529988" type="EnemyObject">
+                                    <param id="0" name="Instance variable">Shooting</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="755507975109611">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="724933591996175" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-13" name="Set boolean" sid="572788988211724" type="EnemyObject">
+                            <param id="0" name="Instance variable">Shooting</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="509862032378250">
+                    <conditions>
+                        <condition id="-33" name="Pick by comparison" sid="230274846881555" type="System">
+                            <param id="0" name="Object">EnemyObject</param>
+                            <param id="1" name="Expression">distance(EnemyObject.X, EnemyObject.Y, Player.X, Player.Y)</param>
+                            <param id="2" name="Comparison">2</param>
                             <param id="3" name="Value">200</param>
                         </condition>
-                        <condition id="-8" name="Is boolean instance variable set" sid="592444954600482" type="EnemyObject">
+                    </conditions>
+                    <actions>
+                        <action behavior="Pathfinding" disabled="1" id="2" name="Stop" sid="171711826358966" type="EnemyObject" />
+                        <action id="-13" name="Set boolean" sid="110930137571878" type="EnemyObject">
+                            <param id="0" name="Instance variable">Walking</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-16" name="Set opacity" sid="159469555889839" type="EnemyObject">
+                            <param id="0" name="Opacity">10</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="380531709267739">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="244998672709029" type="System" />
+                        <condition id="-8" name="Is boolean instance variable set" sid="396232755256541" type="EnemyObject">
                             <param id="0" name="Instance variable">Attacking</param>
                         </condition>
                     </conditions>
                     <actions>
-                        <action behavior="Pathfinding" id="2" name="Stop" sid="471336204524577" type="EnemyObject" />
-                        <action behavior="Turret" id="5" name="Set enabled" sid="346326592313851" type="EnemyObject">
-                            <param id="0" name="State">1</param>
+                        <action id="-13" name="Set boolean" sid="566404507166672" type="EnemyObject">
+                            <param id="0" name="Instance variable">Walking</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-16" name="Set opacity" sid="273812742996935" type="EnemyObject">
+                            <param id="0" name="Opacity">100</param>
                         </action>
                     </actions>
                 </event-block>
@@ -394,14 +541,8 @@
                         <condition id="-8" name="Is boolean instance variable set" sid="358862507106394" type="EnemyObject">
                             <param id="0" name="Instance variable">Lost</param>
                         </condition>
-                        <condition id="-7" name="Compare instance variable" sid="613302241507509" type="LastSeen">
-                            <param id="0" name="Instance variable">Parent</param>
-                            <param id="1" name="Comparison">0</param>
-                            <param id="2" name="Value">EnemyObject.UID</param>
-                        </condition>
                     </conditions>
                     <actions>
-                        <action id="-9" name="Destroy" sid="143374021498711" type="LastSeen" />
                         <action id="-13" name="Set boolean" sid="428350133068476" type="EnemyObject">
                             <param id="0" name="Instance variable">Lost</param>
                             <param id="1" name="Value">0</param>
@@ -1243,6 +1384,34 @@
                         <action id="-4" name="Set layer visible" sid="604624098546394" type="System">
                             <param id="0" name="Layer">LayerIndex(&quot;Message&quot;)</param>
                             <param id="1" name="Visibility">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="260538099563073" title="Level1">
+            <sub-events>
+                <event-block sid="792568699867211">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="829615853193941" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="415636313237545" type="Function">
+                            <param id="0" name="Name">&quot;Message&quot;</param>
+                            <param id="1" name="Parameter {n}">&quot;[b]Controls:[/b] [i]WASD[/i], [i]Left click[/i] to shoot, [i]R[/i] to reload, [i]1-3[/i] to switch weapon. Return to continue.&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="372130023303468">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="756511225202511" type="PlayerHitbox">
+                            <param id="0" name="Object">Trigger</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="294868152661792" type="Function">
+                            <param id="0" name="Name">&quot;Message&quot;</param>
+                            <param id="1" name="Parameter {n}">&quot;[b]Congratulations![/b] You have completed the demo level. The game is still in development, check back later.&quot;</param>
                         </action>
                     </actions>
                 </event-block>
