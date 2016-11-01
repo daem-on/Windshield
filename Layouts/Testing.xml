@@ -275,7 +275,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="AshEffect" uid="201">
+                <instance type="AshCheap" uid="201">
                     <properties>
                         <rate>50</rate>
                         <spray-cone>360</spray-cone>
@@ -314,7 +314,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="AshStay" uid="202">
+                <instance type="Ash" uid="202">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-animation>Default</initial-animation>

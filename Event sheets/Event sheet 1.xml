@@ -21,6 +21,17 @@
                             <param id="0" name="Family name">&quot;Open Sans&quot;</param>
                             <param id="1" name="CSS URL">&quot;https://fonts.googleapis.com/css?family=Open+Sans&quot;</param>
                         </action>
+                        <action id="-13" name="Set boolean" sid="354959435588611" type="Player">
+                            <param id="0" name="Instance variable">MessageWait</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-13" name="Set time scale" sid="479451767444591" type="System">
+                            <param id="0" name="Time scale">1</param>
+                        </action>
+                        <action id="-4" name="Set layer visible" sid="336855530366707" type="System">
+                            <param id="0" name="Layer">LayerIndex(&quot;Message&quot;)</param>
+                            <param id="1" name="Visibility">0</param>
+                        </action>
                     </actions>
                     <sub-events>
                         <event-block sid="500806835553833">
@@ -34,6 +45,21 @@
                             <actions>
                                 <action id="-12" name="Set group active" sid="105832263883421" type="System">
                                     <param id="0" name="Group name">&quot;Level1&quot;</param>
+                                    <param id="1" name="State">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="547464278380641">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="458182872266209" type="System">
+                                    <param id="0" name="First value">LayoutName</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">&quot;Level2&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-12" name="Set group active" sid="406952019736218" type="System">
+                                    <param id="0" name="Group name">&quot;Level2&quot;</param>
                                     <param id="1" name="State">1</param>
                                 </action>
                             </actions>
@@ -1136,6 +1162,59 @@
                         </event-block>
                     </sub-events>
                 </event-block>
+                <event-block sid="229067476872340">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="330580991075505" type="Player">
+                            <param id="0" name="Object">BarsDoor</param>
+                        </condition>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="480556398006760" type="BarsDoor">
+                            <param id="0" name="Instance variable">Opened</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-13" name="Set boolean" sid="442060624867950" type="BarsDoor">
+                            <param id="0" name="Instance variable">Opened</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block any="1" sid="733376069592497">
+                            <conditions>
+                                <condition id="2" name="Is playing" sid="563555045996056" type="BarsDoor">
+                                    <param id="0" name="Animation">&quot;Up&quot;</param>
+                                </condition>
+                                <condition id="2" name="Is playing" sid="562878610157163" type="BarsDoor">
+                                    <param id="0" name="Animation">&quot;Upper&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-16" name="Wait" sid="558869341478879" type="System">
+                                    <param id="0" name="Seconds">0.01</param>
+                                </action>
+                                <action id="4" name="Set animation" sid="307008435626882" type="BarsDoor">
+                                    <param id="0" name="Animation">&quot;Default&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block any="1" sid="393475416803617">
+                            <conditions>
+                                <condition id="2" name="Is playing" sid="579876097803402" type="BarsDoor">
+                                    <param id="0" name="Animation">&quot;Default&quot;</param>
+                                </condition>
+                                <condition id="2" name="Is playing" sid="466115475479027" type="BarsDoor">
+                                    <param id="0" name="Animation">&quot;Right&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Set animation" sid="182218613980180" type="BarsDoor">
+                                    <param id="0" name="Animation">&quot;Up&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
                 <event-block sid="809210939736761">
                     <conditions>
                         <condition id="0" name="On collision with another object" sid="689161907926246" type="Player">
@@ -1200,15 +1279,15 @@
                     </conditions>
                     <actions>
                         <action id="-3" name="Create object" sid="742260366514204" type="System">
-                            <param id="0" name="Object to create">AshStay</param>
+                            <param id="0" name="Object to create">Ash</param>
                             <param id="1" name="Layer">LayerIndex(&quot;Game&quot;)</param>
                             <param id="2" name="X">Function.Param(1)</param>
                             <param id="3" name="Y">Function.Param(2)</param>
                         </action>
-                        <action id="-8" name="Set angle" sid="784293913722773" type="AshStay">
+                        <action id="-8" name="Set angle" sid="784293913722773" type="Ash">
                             <param id="0" name="Angle">random(0, 360)</param>
                         </action>
-                        <action behavior="Bullet" id="0" name="Set speed" sid="935161074150453" type="AshStay">
+                        <action behavior="Bullet" id="0" name="Set speed" sid="935161074150453" type="Ash">
                             <param id="0" name="Speed">random(200, 300)</param>
                         </action>
                     </actions>
@@ -1523,5 +1602,6 @@
                 </event-block>
             </sub-events>
         </event-group>
+        <event-group description="" inactive="1" sid="945202030431415" title="Level2" />
     </events>
 </c2eventsheet>

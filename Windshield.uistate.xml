@@ -10,9 +10,10 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <display name="HTML5" />
     </configurations>
     <open-tabs>
-        <layout active="1" order="0">Level1</layout>
-        <layout order="2">Testing</layout>
-        <event-sheet order="1">Event sheet 1</event-sheet>
+        <layout order="0">Level1</layout>
+        <layout order="3">Testing</layout>
+        <layout active="1" order="1">Level2</layout>
+        <event-sheet order="2">Event sheet 1</event-sheet>
     </open-tabs>
     <properties>
         <property expanded="1" name="About" />
@@ -22,7 +23,7 @@ you probably do not want to add any .uistate.xml files to the repository.-->
     </properties>
     <families-expanded root="1">
         <family expanded="0" name="IsoObject" />
-        <family expanded="1" name="Obstacles" />
+        <family expanded="0" name="Obstacles" />
     </families-expanded>
     <folders-expanded>
         <folder expanded="1" path="object-folder/" />
@@ -59,7 +60,9 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <folder expanded="1" path="animation-folder/TextBack/" />
         <folder expanded="1" path="animation-folder/Trigger/" />
         <folder expanded="1" path="animation-folder/Barrel/" />
-        <folder expanded="1" path="animation-folder/AshStay/" />
+        <folder expanded="1" path="animation-folder/Ash/" />
         <folder expanded="1" path="animation-folder/BloodStay/" />
+        <folder expanded="1" path="animation-folder/Weapon/" />
+        <folder expanded="1" path="animation-folder/BarsDoor/" />
     </folders-expanded>
 </c2uistate>
