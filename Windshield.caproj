@@ -608,11 +608,32 @@
                 </animation>
             </animation-folder>
         </object-type>
+        <object-type name="Barrel" sid="343871370344733">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Solid" sid="451434375328025">
+                    <behavior id="solid" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="774585221214816" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="1">
+                        <collision-poly>
+                            <point x="0" y="0.5" />
+                            <point x="1" y="0.5" />
+                            <point x="1" y="1" />
+                            <point x="0" y="1" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
     </object-folder>
     <families>
         <family name="IsoObject" plugin-id="Sprite" sid="901443341344332">
             <members>
                 <member>Bag</member>
+                <member>Barrel</member>
                 <member>Box</member>
                 <member>Bullet</member>
                 <member>Can</member>
@@ -632,6 +653,7 @@
         <family name="Obstacles" plugin-id="Sprite" sid="390692654131615">
             <members>
                 <member>Bag</member>
+                <member>Barrel</member>
                 <member>Box</member>
                 <member>Door</member>
                 <member>Table</member>
