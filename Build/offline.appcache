@@ -1,5 +1,5 @@
 ﻿CACHE MANIFEST
-#1477860001
+#1478021500
 data.js
 c2runtime.js
 jquery-2.1.1.min.js
@@ -36,6 +36,12 @@ images/woodground.png
 images/bag-sheet0.png
 images/textback-sheet0.png
 images/trigger-sheet0.png
+images/barrel-sheet0.png
+images/asheffect.png
+images/ashstay-sheet0.png
+images/bloodstay-sheet0.png
+images/grassbackground2.png
+images/grassbackground3.png
 icon-16.png
 icon-32.png
 icon-114.png

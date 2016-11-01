@@ -21,11 +21,39 @@
                             <param id="0" name="Family name">&quot;Open Sans&quot;</param>
                             <param id="1" name="CSS URL">&quot;https://fonts.googleapis.com/css?family=Open+Sans&quot;</param>
                         </action>
-                        <action id="0" name="Call function" sid="708168667055385" type="Function">
-                            <param id="0" name="Name">&quot;Message&quot;</param>
-                            <param id="1" name="Parameter {n}">&quot;[b]Controls:[/b] [i]WASD[/i], [i]Left click[/i] to shoot, [i]R[/i] to reload, [i]1-3[/i] to switch weapon. Return to continue.&quot;</param>
-                        </action>
                     </actions>
+                    <sub-events>
+                        <event-block sid="500806835553833">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="687109904078359" type="System">
+                                    <param id="0" name="First value">LayoutName</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">&quot;Level1&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-12" name="Set group active" sid="105832263883421" type="System">
+                                    <param id="0" name="Group name">&quot;Level1&quot;</param>
+                                    <param id="1" name="State">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="150600389423994">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="246806768363934" type="System">
+                                    <param id="0" name="First value">LayoutName</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">&quot;Testing&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-12" name="Set group active" sid="714401527491956" type="System">
+                                    <param id="0" name="Group name">&quot;Testing&quot;</param>
+                                    <param id="1" name="State">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
                 </event-block>
                 <event-block sid="962037894915247">
                     <conditions>
@@ -572,6 +600,10 @@
                             <param id="1" name="Value">Bullet.Damage</param>
                         </action>
                         <action id="-9" name="Destroy" sid="118320055387416" type="Bullet" />
+                        <action id="0" name="Call function" sid="536108177973231" type="Function">
+                            <param id="0" name="Name">&quot;BloodEffect&quot;</param>
+                            <param id="1" name="Parameter {n}">13{###}EnemyDraw.X{###}EnemyDraw.Y{###}angle(Player.X, Player.Y, EnemyDraw.X, EnemyDraw.Y) - 40{###}angle(Player.X, Player.Y, EnemyDraw.X, EnemyDraw.Y) + 40</param>
+                        </action>
                     </actions>
                 </event-block>
                 <event-block sid="666712430667154">
@@ -610,6 +642,10 @@
                             <param id="1" name="Value">EnemyBullet.Damage</param>
                         </action>
                         <action id="-9" name="Destroy" sid="489828962045377" type="EnemyBullet" />
+                        <action id="0" name="Call function" sid="584679441473736" type="Function">
+                            <param id="0" name="Name">&quot;BloodEffect&quot;</param>
+                            <param id="1" name="Parameter {n}">13{###}Player.X{###}Player.Y{###}angle(EnemyObject.X, EnemyObject.Y, Player.X, Player.Y) - 40{###}angle(EnemyObject.X, EnemyObject.Y, Player.X, Player.Y) + 40</param>
+                        </action>
                     </actions>
                 </event-block>
             </sub-events>
@@ -1037,6 +1073,10 @@
                             </conditions>
                             <actions>
                                 <action id="-9" name="Destroy" sid="305775762011484" type="Can" />
+                                <action id="0" name="Call function" sid="803083422620686" type="Function">
+                                    <param id="0" name="Name">&quot;AshEffect&quot;</param>
+                                    <param id="1" name="Parameter {n}">6{###}Can.X{###}Can.Y</param>
+                                </action>
                             </actions>
                         </event-block>
                         <event-block sid="126694430919031">
@@ -1148,6 +1188,54 @@
                             </actions>
                         </event-block>
                     </sub-events>
+                </event-block>
+                <event-block sid="105711511556578">
+                    <conditions>
+                        <condition id="0" name="On function" sid="711250695149112" type="Function">
+                            <param id="0" name="Name">&quot;AshEffect&quot;</param>
+                        </condition>
+                        <condition id="-12" name="Repeat" sid="637789756005388" type="System">
+                            <param id="0" name="Count">Function.Param(0)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="742260366514204" type="System">
+                            <param id="0" name="Object to create">AshStay</param>
+                            <param id="1" name="Layer">LayerIndex(&quot;Game&quot;)</param>
+                            <param id="2" name="X">Function.Param(1)</param>
+                            <param id="3" name="Y">Function.Param(2)</param>
+                        </action>
+                        <action id="-8" name="Set angle" sid="784293913722773" type="AshStay">
+                            <param id="0" name="Angle">random(0, 360)</param>
+                        </action>
+                        <action behavior="Bullet" id="0" name="Set speed" sid="935161074150453" type="AshStay">
+                            <param id="0" name="Speed">random(200, 300)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="214708034758500">
+                    <conditions>
+                        <condition id="0" name="On function" sid="839373164483545" type="Function">
+                            <param id="0" name="Name">&quot;BloodEffect&quot;</param>
+                        </condition>
+                        <condition id="-12" name="Repeat" sid="546120742043604" type="System">
+                            <param id="0" name="Count">Function.Param(0)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="890253514213731" type="System">
+                            <param id="0" name="Object to create">BloodStay</param>
+                            <param id="1" name="Layer">LayerIndex(&quot;Game&quot;)</param>
+                            <param id="2" name="X">Function.Param(1)</param>
+                            <param id="3" name="Y">Function.Param(2)</param>
+                        </action>
+                        <action id="-8" name="Set angle" sid="469571485673878" type="BloodStay">
+                            <param id="0" name="Angle">random(Function.Param(3), Function.Param(4))</param>
+                        </action>
+                        <action behavior="Bullet" id="0" name="Set speed" sid="813894328261445" type="BloodStay">
+                            <param id="0" name="Speed">random(200, 300)</param>
+                        </action>
+                    </actions>
                 </event-block>
             </sub-events>
         </event-group>
@@ -1389,7 +1477,25 @@
                 </event-block>
             </sub-events>
         </event-group>
-        <event-group description="" sid="260538099563073" title="Level1">
+        <event-group description="" inactive="1" sid="926525947516503" title="Testing">
+            <sub-events>
+                <event-block disabled="1" sid="985489631080542">
+                    <conditions>
+                        <condition id="0" name="On click" sid="320802623678536" type="Mouse">
+                            <param id="0" name="Mouse button">0</param>
+                            <param id="1" name="Click type">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="141672666414021" type="Function">
+                            <param id="0" name="Name">&quot;BloodEffect&quot;</param>
+                            <param id="1" name="Parameter {n}">13{###}Mouse.X{###}Mouse.Y{###}angle(Player.X, Player.Y, Mouse.X, Mouse.Y) - 40{###}angle(Player.X, Player.Y, Mouse.X, Mouse.Y) + 40</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" inactive="1" sid="260538099563073" title="Level1">
             <sub-events>
                 <event-block sid="792568699867211">
                     <conditions>
