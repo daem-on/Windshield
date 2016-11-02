@@ -1037,54 +1037,41 @@
         </event-group>
         <event-group description="" sid="163795944872153" title="World">
             <sub-events>
-                <event-block any="1" sid="222288764299784">
-                    <conditions>
-                        <condition id="9" name="Is overlapping at offset" sid="381895281463876" type="Bullet">
-                            <param id="0" name="Object">Wall</param>
-                            <param id="1" name="Offset X">0</param>
-                            <param id="2" name="Offset Y">64</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action id="-9" name="Destroy" sid="900408388525086" type="Bullet" />
-                    </actions>
-                </event-block>
                 <event-block sid="243836205165829">
                     <conditions>
-                        <condition id="0" name="On collision with another object" sid="259623370728394" type="Bullet">
-                            <param id="0" name="Object">Obstacles</param>
+                        <condition id="9" name="Is overlapping at offset" sid="215780399840935" type="Obstacles">
+                            <param id="0" name="Object">Bullet</param>
+                            <param id="1" name="Offset X">0</param>
+                            <param id="2" name="Offset Y">-32</param>
                         </condition>
                     </conditions>
                     <actions>
                         <action id="-9" name="Destroy" sid="520171210287367" type="Bullet" />
                     </actions>
                 </event-block>
-                <event-block any="1" sid="720904842904518">
-                    <conditions>
-                        <condition id="9" name="Is overlapping at offset" sid="279679882757495" type="EnemyBullet">
-                            <param id="0" name="Object">Wall</param>
-                            <param id="1" name="Offset X">0</param>
-                            <param id="2" name="Offset Y">64</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action id="-9" name="Destroy" sid="531050230645481" type="EnemyBullet" />
-                    </actions>
-                </event-block>
                 <event-block sid="783374582288839">
                     <conditions>
-                        <condition id="0" name="On collision with another object" sid="180694235251522" type="Bullet">
-                            <param id="0" name="Object">Obstacles</param>
+                        <condition id="9" name="Is overlapping at offset" sid="119427231164791" type="Obstacles">
+                            <param id="0" name="Object">EnemyBullet</param>
+                            <param id="1" name="Offset X">0</param>
+                            <param id="2" name="Offset Y">-32</param>
                         </condition>
                     </conditions>
                     <actions>
                         <action id="-9" name="Destroy" sid="523894389032027" type="EnemyBullet" />
                     </actions>
                 </event-block>
-                <event-block sid="333127200736332">
+                <event-block any="1" sid="333127200736332">
                     <conditions>
-                        <condition id="0" name="On collision with another object" sid="464698626039023" type="Bullet">
-                            <param id="0" name="Object">Can</param>
+                        <condition id="9" name="Is overlapping at offset" sid="492686645621606" type="Can">
+                            <param id="0" name="Object">EnemyBullet</param>
+                            <param id="1" name="Offset X">0</param>
+                            <param id="2" name="Offset Y">0</param>
+                        </condition>
+                        <condition id="9" name="Is overlapping at offset" sid="829133696047085" type="Can">
+                            <param id="0" name="Object">Bullet</param>
+                            <param id="1" name="Offset X">0</param>
+                            <param id="2" name="Offset Y">0</param>
                         </condition>
                     </conditions>
                     <actions>

@@ -37,7 +37,7 @@
                         <collisions>Enabled</collisions>
                     </properties>
                     <instance-variables>
-                        <OptionalHeight>50</OptionalHeight>
+                        <OptionalHeight>40</OptionalHeight>
                         <Damage>1</Damage>
                     </instance-variables>
                     <behavior-instances>
@@ -63,7 +63,7 @@
                         <height>2</height>
                         <depth>0</depth>
                         <hotspotX>0</hotspotX>
-                        <hotspotY>0</hotspotY>
+                        <hotspotY>32</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
                     </world>
@@ -131,7 +131,7 @@
                         <height>2</height>
                         <depth>0</depth>
                         <hotspotX>0</hotspotX>
-                        <hotspotY>0</hotspotY>
+                        <hotspotY>32</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
                     </world>
