@@ -10,9 +10,9 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <display name="HTML5" />
     </configurations>
     <open-tabs>
-        <layout order="0">Level1</layout>
-        <layout active="1" order="1">Level2</layout>
         <layout order="3">Testing</layout>
+        <layout active="1" order="1">FBI</layout>
+        <layout order="0">FirstHeist</layout>
         <event-sheet order="2">Event sheet 1</event-sheet>
     </open-tabs>
     <properties>
@@ -64,5 +64,7 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <folder expanded="1" path="animation-folder/BloodStay/" />
         <folder expanded="1" path="animation-folder/Weapon/" />
         <folder expanded="1" path="animation-folder/BarsDoor/" />
+        <folder expanded="1" path="animation-folder/GoldStatue/" />
+        <folder expanded="1" path="animation-folder/Actor/" />
     </folders-expanded>
 </c2uistate>

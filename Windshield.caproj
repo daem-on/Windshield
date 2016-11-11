@@ -30,6 +30,7 @@
         <behavior author="Scirra" id="Pin" version="1">Pin</behavior>
         <behavior author="Scirra" id="Turret" version="1">Turret</behavior>
         <behavior author="Scirra" id="bound" version="1">Bound to layout</behavior>
+        <behavior author="Scirra" id="custom" version="1">Custom Movement</behavior>
         <behavior author="Scirra" id="destroy" version="1">Destroy outside layout</behavior>
         <behavior author="Scirra" id="scrollto" version="1">Scroll To</behavior>
         <behavior author="Scirra" id="solid" version="1">Solid</behavior>
@@ -44,7 +45,7 @@
     </window-size>
     <pixel-rounding>0</pixel-rounding>
     <preview-effects>1</preview-effects>
-    <first-layout>Level1</first-layout>
+    <first-layout>OldDemo</first-layout>
     <use-loader-layout>0</use-loader-layout>
     <configuration-settings>
         <prop name="Clear background">Yes</prop>
@@ -72,6 +73,7 @@
                 <instance-variable comment="How many bullets until reload" name="Capacity" sid="317985186865042" type="number" />
                 <instance-variable comment="Sort of like with setbit" name="Inventory" sid="195358806355051" type="string" />
                 <instance-variable name="MessageWait" sid="463774411448338" type="boolean" />
+                <instance-variable name="ActorWait" sid="736453975159200" type="boolean" />
             </instance-variables>
             <behaviors>
                 <behavior-type name="8Direction" sid="463035132523908">
@@ -594,17 +596,28 @@
         </object-type>
         <object-type name="TextBack" sid="978323931778557">
             <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Fade" sid="202421268808861">
+                    <behavior id="Fade" />
+                </behavior-type>
+            </behaviors>
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="496432011837467" speed="5">
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                 </animation>
+                <animation framecount="1" loop="0" name="Overlay" pingpong="0" repeatcount="1" repeatto="0" sid="903001205913451" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
             </animation-folder>
         </object-type>
-        <object-type name="BBcodeText" sid="836024957034180">
+        <object-type name="MessageText" sid="836024957034180">
             <plugin id="rex_bbcodeText" />
         </object-type>
         <object-type name="Trigger" sid="370464508580184">
             <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="ID" sid="778481431797539" type="string" />
+            </instance-variables>
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="572259190464213" speed="5">
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
@@ -742,10 +755,64 @@
                 </animation>
             </animation-folder>
         </object-type>
+        <object-type name="GoldStatue" sid="154088883817056">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="158192872490207" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="MissionText" sid="227701161008458">
+            <plugin id="rex_bbcodeText" />
+        </object-type>
+        <object-type name="Actor" sid="290710377023604">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="Health" sid="601068277970083" type="number" />
+                <instance-variable name="Reload" sid="628698348344745" type="number" />
+                <instance-variable name="Cooldown" sid="763147916340917" type="number" />
+                <instance-variable name="Reloading" sid="520251887798763" type="boolean" />
+                <instance-variable comment="1=Handgun 2=AK47" name="SelectedWeapon" sid="508010265188640" type="number" />
+                <instance-variable comment="How many bullets until reload" name="Capacity" sid="731241706962780" type="number" />
+                <instance-variable comment="Sort of like with setbit" name="Inventory" sid="575000835991722" type="string" />
+                <instance-variable name="MessageWait" sid="290980167444249" type="boolean" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="CustomMovement" sid="510714212096410">
+                    <behavior id="custom" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="344427490942196" speed="5">
+                    <frame duration="1" hotspotX="0.4375" hotspotY="0.859375">
+                        <image-point name="ShootFrom" x="0.46875" y="0.515625" />
+                        <collision-poly>
+                            <point x="0.15625" y="0.796875" />
+                            <point x="0.6875" y="0.796875" />
+                            <point x="0.6875" y="0.9375" />
+                            <point x="0.15625" y="0.9375" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+                <animation framecount="1" loop="0" name="Real" pingpong="0" repeatcount="1" repeatto="0" sid="977474154865468" speed="5">
+                    <frame duration="1" hotspotX="0.4375" hotspotY="0.859375">
+                        <image-point name="ShootFrom" x="0.46875" y="0.515625" />
+                        <collision-poly>
+                            <point x="0.15625" y="0.796875" />
+                            <point x="0.6875" y="0.796875" />
+                            <point x="0.6875" y="0.9375" />
+                            <point x="0.15625" y="0.9375" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
     </object-folder>
     <families>
         <family name="IsoObject" plugin-id="Sprite" sid="901443341344332">
             <members>
+                <member>Actor</member>
                 <member>Bag</member>
                 <member>Barrel</member>
                 <member>BarsDoor</member>
@@ -780,9 +847,10 @@
         </family>
     </families>
     <layout-folder>
-        <layout>Level1.xml</layout>
-        <layout>Level2.xml</layout>
         <layout>Testing.xml</layout>
+        <layout>OldDemo.xml</layout>
+        <layout>FirstHeist.xml</layout>
+        <layout>FBI.xml</layout>
     </layout-folder>
     <event-folder>
         <event-sheet>Event sheet 1.xml</event-sheet>

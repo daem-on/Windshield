@@ -63,7 +63,7 @@
                         <height>2</height>
                         <depth>0</depth>
                         <hotspotX>0</hotspotX>
-                        <hotspotY>32</hotspotY>
+                        <hotspotY>0</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
                     </world>
@@ -131,7 +131,7 @@
                         <height>2</height>
                         <depth>0</depth>
                         <hotspotX>0</hotspotX>
-                        <hotspotY>32</hotspotY>
+                        <hotspotY>0</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
                     </world>
