@@ -2,7 +2,7 @@
 <c2layout>
     <name>Testing</name>
     <sid>869530844833542</sid>
-    <event-sheet>Event sheet 1</event-sheet>
+    <event-sheet>Engine</event-sheet>
     <size>
         <width>1708</width>
         <height>960</height>
@@ -205,8 +205,8 @@
                         <width>64</width>
                         <height>64</height>
                         <depth>0</depth>
-                        <hotspotX>0.5</hotspotX>
-                        <hotspotY>0.5</hotspotY>
+                        <hotspotX>16</hotspotX>
+                        <hotspotY>16</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
                     </world>

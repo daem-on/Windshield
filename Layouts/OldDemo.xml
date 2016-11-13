@@ -2,7 +2,7 @@
 <c2layout>
     <name>OldDemo</name>
     <sid>8873350371196689</sid>
-    <event-sheet>Event sheet 1</event-sheet>
+    <event-sheet>Engine</event-sheet>
     <size>
         <width>6000</width>
         <height>1440</height>
@@ -5805,8 +5805,8 @@
                         <x>32</x>
                         <y>32</y>
                         <z>0</z>
-                        <width>192</width>
-                        <height>32</height>
+                        <width>1.536000013</width>
+                        <height>0.256000012</height>
                         <depth>0</depth>
                         <hotspotX>0</hotspotX>
                         <hotspotY>0.5</hotspotY>
@@ -5838,8 +5838,8 @@
                         <x>32</x>
                         <y>32</y>
                         <z>0</z>
-                        <width>144</width>
-                        <height>32</height>
+                        <width>1.15199995</width>
+                        <height>0.256000012</height>
                         <depth>0</depth>
                         <hotspotX>0</hotspotX>
                         <hotspotY>0.5</hotspotY>
@@ -5871,11 +5871,11 @@
                         <x>32</x>
                         <y>56</y>
                         <z>0</z>
-                        <width>192</width>
-                        <height>16</height>
+                        <width>1.536000013</width>
+                        <height>0.128000006</height>
                         <depth>0</depth>
                         <hotspotX>0</hotspotX>
-                        <hotspotY>0.5</hotspotY>
+                        <hotspotY>62.5</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
                     </world>
@@ -5893,11 +5893,11 @@
                         <x>160</x>
                         <y>640</y>
                         <z>0</z>
-                        <width>224</width>
-                        <height>96</height>
+                        <width>1.792000055</width>
+                        <height>0.768000007</height>
                         <depth>0</depth>
-                        <hotspotX>0.5</hotspotX>
-                        <hotspotY>0.5</hotspotY>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
                     </world>
@@ -5915,8 +5915,8 @@
                         <x>96</x>
                         <y>640</y>
                         <z>0</z>
-                        <width>64</width>
-                        <height>96</height>
+                        <width>0.512000024</width>
+                        <height>0.768000007</height>
                         <depth>0</depth>
                         <hotspotX>0.5</hotspotX>
                         <hotspotY>0.5</hotspotY>
@@ -6114,11 +6114,11 @@
                         <x>864</x>
                         <y>640</y>
                         <z>0</z>
-                        <width>800</width>
-                        <height>96</height>
+                        <width>6.400000095</width>
+                        <height>0.768000007</height>
                         <depth>0</depth>
-                        <hotspotX>0.5</hotspotX>
-                        <hotspotY>0.5</hotspotY>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
                     </world>

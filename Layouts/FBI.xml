@@ -2,7 +2,7 @@
 <c2layout>
     <name>FBI</name>
     <sid>768449811377519</sid>
-    <event-sheet>Event sheet 1</event-sheet>
+    <event-sheet>Engine</event-sheet>
     <size>
         <width>2000</width>
         <height>1440</height>
@@ -1092,26 +1092,49 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-            </instances>
-            <effects />
-        </layer>
-        <layer name="UI" sid="740918639386910">
-            <initially-visible>1</initially-visible>
-            <background-color>255,255,255</background-color>
-            <transparent>1</transparent>
-            <parallax>
-                <x>0</x>
-                <y>0</y>
-            </parallax>
-            <zoom-rate>1</zoom-rate>
-            <opacity>1</opacity>
-            <force-own-texture>0</force-own-texture>
-            <global>0</global>
-            <use-render-cells>0</use-render-cells>
-            <blend-mode>0</blend-mode>
-            <effect-fallback>0</effect-fallback>
-            <instances>
-                <instance type="HealthMinus" uid="992">
+                <instance type="Actor" uid="642">
+                    <properties>
+                        <initial-visibility>Invisible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <instance-variables>
+                        <OptionalHeight>0</OptionalHeight>
+                        <Health>0</Health>
+                        <Reload>0</Reload>
+                        <Cooldown>0</Cooldown>
+                        <Reloading>false</Reloading>
+                        <SelectedWeapon>0</SelectedWeapon>
+                        <Capacity>0</Capacity>
+                        <Inventory></Inventory>
+                        <MessageWait>false</MessageWait>
+                    </instance-variables>
+                    <behavior-instances>
+                        <behavior-instance type="CustomMovement">
+                            <properties>
+                                <stepping-mode>None</stepping-mode>
+                                <pixels-per-step>5</pixels-per-step>
+                                <initial-state>Enabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                    </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>800</x>
+                        <y>832</y>
+                        <z>0</z>
+                        <width>64</width>
+                        <height>118</height>
+                        <depth>0</depth>
+                        <hotspotX>0.4375</hotspotX>
+                        <hotspotY>0.859375</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="HealthMinus" uid="643">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-animation>Default</initial-animation>
@@ -1144,7 +1167,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="HealthPlus" uid="993">
+                <instance type="HealthPlus" uid="644">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-animation>Default</initial-animation>
@@ -1168,7 +1191,7 @@
                         <x>32</x>
                         <y>32</y>
                         <z>0</z>
-                        <width>144</width>
+                        <width>192</width>
                         <height>32</height>
                         <depth>0</depth>
                         <hotspotX>0</hotspotX>
@@ -1177,7 +1200,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="ReloadBar" uid="994">
+                <instance type="ReloadBar" uid="646">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-animation>Default</initial-animation>
@@ -1199,40 +1222,18 @@
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>32</x>
-                        <y>56</y>
+                        <y>48</y>
                         <z>0</z>
                         <width>192</width>
                         <height>16</height>
                         <depth>0</depth>
                         <hotspotX>0</hotspotX>
-                        <hotspotY>0.5</hotspotY>
+                        <hotspotY>0</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="TransBackground" uid="995">
-                    <properties>
-                        <initial-visibility>Visible</initial-visibility>
-                        <initial-animation>Default</initial-animation>
-                        <initial-frame>0</initial-frame>
-                        <collisions>Enabled</collisions>
-                    </properties>
-                    <blend-mode>0</blend-mode>
-                    <effect-fallback>0</effect-fallback>
-                    <world>
-                        <x>160</x>
-                        <y>640</y>
-                        <z>0</z>
-                        <width>224</width>
-                        <height>96</height>
-                        <depth>0</depth>
-                        <hotspotX>0.5</hotspotX>
-                        <hotspotY>0.5</hotspotY>
-                        <angle>0</angle>
-                        <opacity>1</opacity>
-                    </world>
-                </instance>
-                <instance type="Selected" uid="996">
+                <instance type="Selected" uid="647">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-animation>Default</initial-animation>
@@ -1254,7 +1255,29 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="Number" uid="997">
+                <instance type="TransBackground" uid="648">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>48</x>
+                        <y>592</y>
+                        <z>0</z>
+                        <width>224</width>
+                        <height>96</height>
+                        <depth>0</depth>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="Number" uid="650">
                     <properties>
                         <text>1</text>
                         <initial-visibility>Visible</initial-visibility>
@@ -1281,7 +1304,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="Number" uid="998">
+                <instance type="Number" uid="651">
                     <properties>
                         <text>2</text>
                         <initial-visibility>Visible</initial-visibility>
@@ -1308,7 +1331,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="WeaponSelect" uid="999">
+                <instance type="WeaponSelect" uid="652">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-animation>Pistol</initial-animation>
@@ -1330,7 +1353,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="WeaponSelect" uid="1000">
+                <instance type="WeaponSelect" uid="653">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-animation>AK</initial-animation>
@@ -1352,7 +1375,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="WeaponSelect" uid="1001">
+                <instance type="WeaponSelect" uid="654">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-animation>Shotgun</initial-animation>
@@ -1374,7 +1397,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="Number" uid="1002">
+                <instance type="Number" uid="655">
                     <properties>
                         <text>3</text>
                         <initial-visibility>Visible</initial-visibility>
@@ -1404,8 +1427,8 @@
             </instances>
             <effects />
         </layer>
-        <layer name="Message" sid="346094115736015">
-            <initially-visible>0</initially-visible>
+        <layer name="UI" sid="740918639386910">
+            <initially-visible>1</initially-visible>
             <background-color>255,255,255</background-color>
             <transparent>1</transparent>
             <parallax>
@@ -1420,7 +1443,7 @@
             <blend-mode>0</blend-mode>
             <effect-fallback>0</effect-fallback>
             <instances>
-                <instance type="TextBack" uid="1003">
+                <instance type="TextBack" uid="656">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-animation>Default</initial-animation>
@@ -1441,19 +1464,19 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>864</x>
-                        <y>640</y>
+                        <x>464</x>
+                        <y>592</y>
                         <z>0</z>
                         <width>800</width>
                         <height>96</height>
                         <depth>0</depth>
-                        <hotspotX>0.5</hotspotX>
-                        <hotspotY>0.5</hotspotY>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="MessageText" uid="1004">
+                <instance type="MessageText" uid="657">
                     <properties>
                         <text>[b]Message</text>
                         <initial-visibility>Visible</initial-visibility>
@@ -1495,6 +1518,24 @@
             </instances>
             <effects />
         </layer>
+        <layer name="Message" sid="346094115736015">
+            <initially-visible>0</initially-visible>
+            <background-color>255,255,255</background-color>
+            <transparent>1</transparent>
+            <parallax>
+                <x>0</x>
+                <y>0</y>
+            </parallax>
+            <zoom-rate>1</zoom-rate>
+            <opacity>1</opacity>
+            <force-own-texture>0</force-own-texture>
+            <global>0</global>
+            <use-render-cells>0</use-render-cells>
+            <blend-mode>0</blend-mode>
+            <effect-fallback>0</effect-fallback>
+            <instances />
+            <effects />
+        </layer>
         <layer name="Mission" sid="480715975236242">
             <initially-visible>0</initially-visible>
             <background-color>255,255,255</background-color>
@@ -1511,7 +1552,7 @@
             <blend-mode>0</blend-mode>
             <effect-fallback>0</effect-fallback>
             <instances>
-                <instance type="TextBack" uid="1005">
+                <instance type="TextBack" uid="658">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-animation>Default</initial-animation>
@@ -1532,19 +1573,19 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>864</x>
-                        <y>40</y>
+                        <x>464</x>
+                        <y>16</y>
                         <z>0</z>
                         <width>800</width>
                         <height>48</height>
                         <depth>0</depth>
-                        <hotspotX>0.5</hotspotX>
-                        <hotspotY>0.5</hotspotY>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="MissionText" uid="1006">
+                <instance type="MissionText" uid="659">
                     <properties>
                         <text>Mission</text>
                         <initial-visibility>Visible</initial-visibility>
@@ -1604,14 +1645,14 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>640</x>
-                        <y>360</y>
+                        <x>0</x>
+                        <y>0</y>
                         <z>0</z>
                         <width>1280</width>
-                        <height>736</height>
+                        <height>720</height>
                         <depth>0</depth>
-                        <hotspotX>0.5</hotspotX>
-                        <hotspotY>0.5</hotspotY>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
                     </world>
