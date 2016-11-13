@@ -596,11 +596,6 @@
         </object-type>
         <object-type name="TextBack" sid="978323931778557">
             <plugin id="Sprite" />
-            <behaviors>
-                <behavior-type name="Fade" sid="202421268808861">
-                    <behavior id="Fade" />
-                </behavior-type>
-            </behaviors>
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="496432011837467" speed="5">
                     <frame duration="1" hotspotX="0" hotspotY="0" />
@@ -768,16 +763,6 @@
         </object-type>
         <object-type name="Actor" sid="290710377023604">
             <plugin id="Sprite" />
-            <instance-variables>
-                <instance-variable name="Health" sid="601068277970083" type="number" />
-                <instance-variable name="Reload" sid="628698348344745" type="number" />
-                <instance-variable name="Cooldown" sid="763147916340917" type="number" />
-                <instance-variable name="Reloading" sid="520251887798763" type="boolean" />
-                <instance-variable comment="1=Handgun 2=AK47" name="SelectedWeapon" sid="508010265188640" type="number" />
-                <instance-variable comment="How many bullets until reload" name="Capacity" sid="731241706962780" type="number" />
-                <instance-variable comment="Sort of like with setbit" name="Inventory" sid="575000835991722" type="string" />
-                <instance-variable name="MessageWait" sid="290980167444249" type="boolean" />
-            </instance-variables>
             <behaviors>
                 <behavior-type name="CustomMovement" sid="510714212096410">
                     <behavior id="custom" />
@@ -808,6 +793,22 @@
                 </animation>
             </animation-folder>
         </object-type>
+        <object-type name="Fade" sid="724775552874070">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="FadeIn" sid="537611602413870">
+                    <behavior id="Fade" />
+                </behavior-type>
+                <behavior-type name="FadeOut" sid="725205606494441">
+                    <behavior id="Fade" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="767806641352206" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
+                </animation>
+            </animation-folder>
+        </object-type>
     </object-folder>
     <families>
         <family name="IsoObject" plugin-id="Sprite" sid="901443341344332">
@@ -822,6 +823,7 @@
                 <member>Door</member>
                 <member>EnemyBullet</member>
                 <member>EnemyDraw</member>
+                <member>GoldStatue</member>
                 <member>MedKit</member>
                 <member>Player</member>
                 <member>Table</member>
@@ -851,6 +853,7 @@
         <layout>OldDemo.xml</layout>
         <layout>FirstHeist.xml</layout>
         <layout>FBI.xml</layout>
+        <layout>Friend.xml</layout>
     </layout-folder>
     <event-folder>
         <event-sheet>Engine.xml</event-sheet>

@@ -110,8 +110,16 @@
                         <condition id="-2" name="On start of layout" sid="820625517258674" type="System" />
                     </conditions>
                     <actions>
+                        <action id="-13" name="Set boolean" sid="735931019347913" type="Player">
+                            <param id="0" name="Instance variable">ActorWait</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
                         <action id="-16" name="Wait" sid="848385141873701" type="System">
-                            <param id="0" name="Seconds">0.01</param>
+                            <param id="0" name="Seconds">0.5</param>
+                        </action>
+                        <action id="-13" name="Set boolean" sid="626869770833240" type="Player">
+                            <param id="0" name="Instance variable">ActorWait</param>
+                            <param id="1" name="Value">0</param>
                         </action>
                         <action id="0" name="Call function" sid="492583756221654" type="Function">
                             <param id="0" name="Name">&quot;Message&quot;</param>
@@ -339,10 +347,11 @@
                                 <action id="-16" name="Wait" sid="582823650280396" type="System">
                                     <param id="0" name="Seconds">0.01</param>
                                 </action>
-                                <action behavior="Fade" id="1" name="Start fade" sid="802825349597048" type="TextBack" />
-                                <action id="-15" name="Set visible" sid="262019294373418" type="TextBack">
-                                    <param id="0" name="Visibility">1</param>
+                                <action id="-4" name="Set layer visible" sid="542727028852048" type="System">
+                                    <param id="0" name="Layer">LayerIndex(&quot;Fading&quot;)</param>
+                                    <param id="1" name="Visibility">1</param>
                                 </action>
+                                <action behavior="FadeOut" id="1" name="Start fade" sid="802825349597048" type="Fade" />
                                 <action id="-16" name="Wait" sid="430265051274649" type="System">
                                     <param id="0" name="Seconds">0.5</param>
                                 </action>
@@ -366,9 +375,16 @@
                         <condition id="-2" name="On start of layout" sid="751729928481904" type="System" />
                     </conditions>
                     <actions>
+                        <action id="-13" name="Set boolean" sid="687203311941330" type="Player">
+                            <param id="0" name="Instance variable">ActorWait</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
                         <action id="-9" name="Set value" sid="319577673418823" type="System">
                             <param id="0" name="Variable">Progress</param>
                             <param id="1" name="Value">8</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="827975998460792" type="System">
+                            <param id="0" name="Seconds">0.8</param>
                         </action>
                         <action id="0" name="Call function" sid="807058706426544" type="Function">
                             <param id="0" name="Name">&quot;Message&quot;</param>
@@ -419,19 +435,20 @@
                         <action id="-16" name="Wait" sid="590802059981597" type="System">
                             <param id="0" name="Seconds">0.01</param>
                         </action>
-                        <action behavior="Fade" id="1" name="Start fade" sid="892962631676647" type="TextBack" />
-                        <action id="-15" name="Set visible" sid="439209803960565" type="TextBack">
-                            <param id="0" name="Visibility">1</param>
+                        <action id="-4" name="Set layer visible" sid="278796873518731" type="System">
+                            <param id="0" name="Layer">LayerIndex(&quot;Fading&quot;)</param>
+                            <param id="1" name="Visibility">1</param>
                         </action>
+                        <action behavior="FadeOut" id="1" name="Start fade" sid="904573442256092" type="Fade" />
                         <action id="-16" name="Wait" sid="175217778524573" type="System">
                             <param id="0" name="Seconds">0.5</param>
                         </action>
                         <action id="-2" name="Go to layout" sid="364048987241087" type="System">
-                            <param id="0" name="Layout">FBI</param>
+                            <param id="0" name="Layout">Friend</param>
                         </action>
                         <action id="-9" name="Set value" sid="273319954016987" type="System">
                             <param id="0" name="Variable">Progress</param>
-                            <param id="1" name="Value">7</param>
+                            <param id="1" name="Value">9</param>
                         </action>
                     </actions>
                 </event-block>

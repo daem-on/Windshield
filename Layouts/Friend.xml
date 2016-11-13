@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <c2layout>
-    <name>FBI</name>
-    <sid>768449811377519</sid>
+    <name>Friend</name>
+    <sid>346157937984859</sid>
     <event-sheet>Engine</event-sheet>
     <size>
         <width>2000</width>
@@ -13,7 +13,7 @@
     </margins>
     <unbounded-scrolling>0</unbounded-scrolling>
     <layers>
-        <layer name="Bottom" sid="946721097868314">
+        <layer name="Bottom" sid="311982700161485">
             <initially-visible>1</initially-visible>
             <background-color>255,255,255</background-color>
             <transparent>1</transparent>
@@ -29,7 +29,7 @@
             <blend-mode>0</blend-mode>
             <effect-fallback>0</effect-fallback>
             <instances>
-                <instance type="GrassBackground" uid="611">
+                <instance type="GrassBackground" uid="660">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <hotspot>Top-left</hotspot>
@@ -49,7 +49,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="GrassBackground3" uid="612">
+                <instance type="GrassBackground3" uid="661">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <hotspot>Top-left</hotspot>
@@ -69,7 +69,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="GrassBackground2" uid="613">
+                <instance type="GrassBackground2" uid="662">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <hotspot>Top-left</hotspot>
@@ -89,7 +89,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="ConcreteGround" uid="614">
+                <instance type="ConcreteGround" uid="663">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <hotspot>Top-left</hotspot>
@@ -109,7 +109,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="ConcreteGround" uid="619">
+                <instance type="ConcreteGround" uid="664">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <hotspot>Top-left</hotspot>
@@ -132,7 +132,7 @@
             </instances>
             <effects />
         </layer>
-        <layer name="Shadow" sid="311195568820895">
+        <layer name="Shadow" sid="813853697752128">
             <initially-visible>1</initially-visible>
             <background-color>255,255,255</background-color>
             <transparent>1</transparent>
@@ -150,7 +150,7 @@
             <instances />
             <effects />
         </layer>
-        <layer name="Game" sid="358722396593173">
+        <layer name="Game" sid="711109426355437">
             <initially-visible>1</initially-visible>
             <background-color>255,255,255</background-color>
             <transparent>1</transparent>
@@ -166,7 +166,7 @@
             <blend-mode>0</blend-mode>
             <effect-fallback>0</effect-fallback>
             <instances>
-                <instance type="Wall" uid="645">
+                <instance type="Wall" uid="665">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-animation>Default</initial-animation>
@@ -198,7 +198,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="Wall" uid="649">
+                <instance type="Wall" uid="666">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-animation>Default</initial-animation>
@@ -230,7 +230,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="Player" uid="616">
+                <instance type="Player" uid="667">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-animation>Real</initial-animation>
@@ -287,7 +287,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="Wall" uid="615">
+                <instance type="Wall" uid="668">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-animation>Default</initial-animation>
@@ -319,7 +319,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="Wall" uid="617">
+                <instance type="Wall" uid="669">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-animation>Default</initial-animation>
@@ -351,7 +351,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="Wall" uid="618">
+                <instance type="Wall" uid="670">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-animation>Default</initial-animation>
@@ -383,7 +383,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="Wall" uid="620">
+                <instance type="Wall" uid="671">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-animation>Default</initial-animation>
@@ -415,7 +415,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="Wall" uid="621">
+                <instance type="Wall" uid="672">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-animation>Default</initial-animation>
@@ -447,7 +447,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="Table" uid="622">
+                <instance type="Table" uid="673">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-animation>Up</initial-animation>
@@ -479,7 +479,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="Table" uid="623">
+                <instance type="Table" uid="674">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-animation>Up</initial-animation>
@@ -511,7 +511,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="Wall" uid="624">
+                <instance type="Wall" uid="675">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-animation>Default</initial-animation>
@@ -543,7 +543,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="Wall" uid="625">
+                <instance type="Wall" uid="676">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-animation>Default</initial-animation>
@@ -575,7 +575,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="Wall" uid="626">
+                <instance type="Wall" uid="677">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-animation>Default</initial-animation>
@@ -607,7 +607,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="Table" uid="627">
+                <instance type="Table" uid="678">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-animation>Up</initial-animation>
@@ -639,7 +639,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="Door" uid="628">
+                <instance type="Door" uid="679">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-animation>Up</initial-animation>
@@ -672,7 +672,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="Wall" uid="629">
+                <instance type="Wall" uid="680">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-animation>Default</initial-animation>
@@ -704,7 +704,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="Door" uid="630">
+                <instance type="Door" uid="681">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-animation>Up</initial-animation>
@@ -737,7 +737,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="Door" uid="631">
+                <instance type="Door" uid="682">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-animation>Up</initial-animation>
@@ -770,7 +770,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="Door" uid="632">
+                <instance type="Door" uid="683">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-animation>Default</initial-animation>
@@ -803,7 +803,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="Bag" uid="633">
+                <instance type="Bag" uid="684">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-animation>Default</initial-animation>
@@ -835,7 +835,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="Bag" uid="634">
+                <instance type="Bag" uid="685">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-animation>Default</initial-animation>
@@ -867,7 +867,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="Box" uid="635">
+                <instance type="Box" uid="686">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-animation>Default</initial-animation>
@@ -899,7 +899,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="Box" uid="636">
+                <instance type="Box" uid="687">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-animation>Default</initial-animation>
@@ -931,7 +931,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="Wall" uid="637">
+                <instance type="Wall" uid="688">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-animation>Default</initial-animation>
@@ -963,7 +963,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="Wall" uid="638">
+                <instance type="Wall" uid="689">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-animation>Default</initial-animation>
@@ -995,7 +995,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="Wall" uid="639">
+                <instance type="Wall" uid="690">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-animation>Default</initial-animation>
@@ -1027,7 +1027,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="Wall" uid="640">
+                <instance type="Wall" uid="691">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-animation>Default</initial-animation>
@@ -1059,7 +1059,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="Door" uid="641">
+                <instance type="Door" uid="692">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-animation>Default</initial-animation>
@@ -1092,7 +1092,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="Actor" uid="642">
+                <instance type="Actor" uid="693">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-animation>Default</initial-animation>
@@ -1126,7 +1126,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="HealthMinus" uid="643">
+                <instance type="HealthMinus" uid="694">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-animation>Default</initial-animation>
@@ -1159,7 +1159,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="HealthPlus" uid="644">
+                <instance type="HealthPlus" uid="695">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-animation>Default</initial-animation>
@@ -1192,7 +1192,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="ReloadBar" uid="646">
+                <instance type="ReloadBar" uid="696">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-animation>Default</initial-animation>
@@ -1225,26 +1225,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-            </instances>
-            <effects />
-        </layer>
-        <layer name="UI" sid="740918639386910">
-            <initially-visible>1</initially-visible>
-            <background-color>255,255,255</background-color>
-            <transparent>1</transparent>
-            <parallax>
-                <x>0</x>
-                <y>0</y>
-            </parallax>
-            <zoom-rate>1</zoom-rate>
-            <opacity>1</opacity>
-            <force-own-texture>0</force-own-texture>
-            <global>0</global>
-            <use-render-cells>0</use-render-cells>
-            <blend-mode>0</blend-mode>
-            <effect-fallback>0</effect-fallback>
-            <instances>
-                <instance type="Selected" uid="647">
+                <instance type="Selected" uid="697">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-animation>Default</initial-animation>
@@ -1266,7 +1247,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="TransBackground" uid="648">
+                <instance type="TransBackground" uid="698">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-animation>Default</initial-animation>
@@ -1288,7 +1269,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="Number" uid="650">
+                <instance type="Number" uid="699">
                     <properties>
                         <text>1</text>
                         <initial-visibility>Visible</initial-visibility>
@@ -1315,7 +1296,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="Number" uid="651">
+                <instance type="Number" uid="700">
                     <properties>
                         <text>2</text>
                         <initial-visibility>Visible</initial-visibility>
@@ -1342,7 +1323,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="WeaponSelect" uid="652">
+                <instance type="WeaponSelect" uid="701">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-animation>Pistol</initial-animation>
@@ -1364,7 +1345,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="WeaponSelect" uid="653">
+                <instance type="WeaponSelect" uid="702">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-animation>AK</initial-animation>
@@ -1386,7 +1367,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="WeaponSelect" uid="654">
+                <instance type="WeaponSelect" uid="703">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-animation>Shotgun</initial-animation>
@@ -1408,7 +1389,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="Number" uid="655">
+                <instance type="Number" uid="704">
                     <properties>
                         <text>3</text>
                         <initial-visibility>Visible</initial-visibility>
@@ -1438,8 +1419,8 @@
             </instances>
             <effects />
         </layer>
-        <layer name="Message" sid="346094115736015">
-            <initially-visible>0</initially-visible>
+        <layer name="UI" sid="514372115609717">
+            <initially-visible>1</initially-visible>
             <background-color>255,255,255</background-color>
             <transparent>1</transparent>
             <parallax>
@@ -1454,7 +1435,7 @@
             <blend-mode>0</blend-mode>
             <effect-fallback>0</effect-fallback>
             <instances>
-                <instance type="TextBack" uid="656">
+                <instance type="TextBack" uid="705">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-animation>Default</initial-animation>
@@ -1476,7 +1457,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="MessageText" uid="657">
+                <instance type="MessageText" uid="706">
                     <properties>
                         <text>[b]Message</text>
                         <initial-visibility>Visible</initial-visibility>
@@ -1518,7 +1499,25 @@
             </instances>
             <effects />
         </layer>
-        <layer name="Mission" sid="480715975236242">
+        <layer name="Message" sid="632988960840124">
+            <initially-visible>0</initially-visible>
+            <background-color>255,255,255</background-color>
+            <transparent>1</transparent>
+            <parallax>
+                <x>0</x>
+                <y>0</y>
+            </parallax>
+            <zoom-rate>1</zoom-rate>
+            <opacity>1</opacity>
+            <force-own-texture>0</force-own-texture>
+            <global>0</global>
+            <use-render-cells>0</use-render-cells>
+            <blend-mode>0</blend-mode>
+            <effect-fallback>0</effect-fallback>
+            <instances />
+            <effects />
+        </layer>
+        <layer name="Mission" sid="981557354685168">
             <initially-visible>0</initially-visible>
             <background-color>255,255,255</background-color>
             <transparent>1</transparent>
@@ -1534,7 +1533,7 @@
             <blend-mode>0</blend-mode>
             <effect-fallback>0</effect-fallback>
             <instances>
-                <instance type="TextBack" uid="658">
+                <instance type="TextBack" uid="707">
                     <properties>
                         <initial-visibility>Visible</initial-visibility>
                         <initial-animation>Default</initial-animation>
@@ -1556,7 +1555,7 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-                <instance type="MissionText" uid="659">
+                <instance type="MissionText" uid="708">
                     <properties>
                         <text>Mission</text>
                         <initial-visibility>Visible</initial-visibility>
@@ -1595,52 +1594,13 @@
                         <opacity>1</opacity>
                     </world>
                 </instance>
-            </instances>
-            <effects />
-        </layer>
-        <layer name="Fading" sid="482191957295920">
-            <initially-visible>1</initially-visible>
-            <background-color>255,255,255</background-color>
-            <transparent>1</transparent>
-            <parallax>
-                <x>0</x>
-                <y>0</y>
-            </parallax>
-            <zoom-rate>1</zoom-rate>
-            <opacity>1</opacity>
-            <force-own-texture>0</force-own-texture>
-            <global>0</global>
-            <use-render-cells>0</use-render-cells>
-            <blend-mode>0</blend-mode>
-            <effect-fallback>0</effect-fallback>
-            <instances>
-                <instance type="Fade" uid="710">
+                <instance type="TextBack" uid="709">
                     <properties>
-                        <initial-visibility>Visible</initial-visibility>
-                        <initial-animation>Default</initial-animation>
+                        <initial-visibility>Invisible</initial-visibility>
+                        <initial-animation>Overlay</initial-animation>
                         <initial-frame>0</initial-frame>
                         <collisions>Enabled</collisions>
                     </properties>
-                    <behavior-instances>
-                        <behavior-instance type="FadeIn">
-                            <properties>
-                                <active-at-start>Yes</active-at-start>
-                                <fade-in-time>0</fade-in-time>
-                                <wait-time>0</wait-time>
-                                <fade-out-time>0.5</fade-out-time>
-                                <destroy>No</destroy>
-                            </properties>
-                        </behavior-instance>
-                        <behavior-instance type="FadeOut">
-                            <properties>
-                                <active-at-start>No</active-at-start>
-                                <fade-in-time>0.5</fade-in-time>
-                                <wait-time>0</wait-time>
-                                <fade-out-time>0</fade-out-time>
-                                <destroy>No</destroy>
-                            </properties>
-                        </behavior-instance>
-                    </behavior-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>

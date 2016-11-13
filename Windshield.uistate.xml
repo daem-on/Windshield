@@ -10,8 +10,8 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <display name="HTML5" />
     </configurations>
     <open-tabs>
-        <layout active="1" order="0">FirstHeist</layout>
-        <layout order="1">FBI</layout>
+        <layout order="0">FirstHeist</layout>
+        <layout active="1" order="1">FBI</layout>
         <event-sheet order="2">Engine</event-sheet>
         <event-sheet order="3">Story</event-sheet>
     </open-tabs>
@@ -66,5 +66,6 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <folder expanded="1" path="animation-folder/BarsDoor/" />
         <folder expanded="1" path="animation-folder/GoldStatue/" />
         <folder expanded="1" path="animation-folder/Actor/" />
+        <folder expanded="1" path="animation-folder/Fade/" />
     </folders-expanded>
 </c2uistate>
