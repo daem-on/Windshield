@@ -45,7 +45,7 @@
     </window-size>
     <pixel-rounding>0</pixel-rounding>
     <preview-effects>1</preview-effects>
-    <first-layout>OldDemo</first-layout>
+    <first-layout>FirstHeist</first-layout>
     <use-loader-layout>0</use-loader-layout>
     <configuration-settings>
         <prop name="Clear background">Yes</prop>
@@ -84,6 +84,9 @@
                 </behavior-type>
                 <behavior-type name="BoundToLayout" sid="968952488938384">
                     <behavior id="bound" />
+                </behavior-type>
+                <behavior-type name="CustomMovement" sid="574391343501721">
+                    <behavior id="custom" />
                 </behavior-type>
             </behaviors>
             <container>
@@ -353,6 +356,36 @@
                         </collision-poly>
                     </frame>
                 </animation>
+                <animation framecount="1" loop="0" name="Text" pingpong="0" repeatcount="1" repeatto="0" sid="828046428719248" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="1">
+                        <collision-poly>
+                            <point x="0" y="0.5" />
+                            <point x="1" y="0.5" />
+                            <point x="1" y="1" />
+                            <point x="0" y="1" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+                <animation framecount="1" loop="0" name="Spray" pingpong="0" repeatcount="1" repeatto="0" sid="778993545193305" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="1">
+                        <collision-poly>
+                            <point x="0" y="0.5" />
+                            <point x="1" y="0.5" />
+                            <point x="1" y="1" />
+                            <point x="0" y="1" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+                <animation framecount="1" loop="0" name="Line" pingpong="0" repeatcount="1" repeatto="0" sid="525885661715396" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="1">
+                        <collision-poly>
+                            <point x="0" y="0.5" />
+                            <point x="1" y="0.5" />
+                            <point x="1" y="1" />
+                            <point x="0" y="1" />
+                        </collision-poly>
+                    </frame>
+                </animation>
             </animation-folder>
         </object-type>
         <object-type name="ConcreteGround" sid="990214394950643">
@@ -394,6 +427,26 @@
                     </frame>
                 </animation>
                 <animation framecount="1" loop="0" name="Up" pingpong="0" repeatcount="1" repeatto="0" sid="309644111153620" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="1">
+                        <collision-poly>
+                            <point x="0" y="0.333333" />
+                            <point x="1" y="0.333333" />
+                            <point x="1" y="1" />
+                            <point x="0" y="1" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+                <animation framecount="1" loop="0" name="WhiteDefault" pingpong="0" repeatcount="1" repeatto="0" sid="396026750382750" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="1">
+                        <collision-poly>
+                            <point x="0" y="0.5" />
+                            <point x="1" y="0.5" />
+                            <point x="1" y="1" />
+                            <point x="0" y="1" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+                <animation framecount="1" loop="0" name="WhiteUp" pingpong="0" repeatcount="1" repeatto="0" sid="553415924464693" speed="5">
                     <frame duration="1" hotspotX="0" hotspotY="1">
                         <collision-poly>
                             <point x="0" y="0.333333" />
@@ -470,6 +523,16 @@
                     </frame>
                 </animation>
                 <animation framecount="1" loop="0" name="Default2" pingpong="0" repeatcount="1" repeatto="0" sid="402799833877602" speed="5">
+                    <frame duration="1" hotspotX="0.46875" hotspotY="0.96875">
+                        <collision-poly>
+                            <point x="0.40625" y="0.9375" />
+                            <point x="0.5625" y="0.9375" />
+                            <point x="0.5625" y="0.96875" />
+                            <point x="0.40625" y="0.96875" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+                <animation framecount="1" loop="0" name="Default3" pingpong="0" repeatcount="1" repeatto="0" sid="311566024132772" speed="5">
                     <frame duration="1" hotspotX="0.46875" hotspotY="0.96875">
                         <collision-poly>
                             <point x="0.40625" y="0.9375" />
@@ -780,7 +843,7 @@
                         </collision-poly>
                     </frame>
                 </animation>
-                <animation framecount="1" loop="0" name="Real" pingpong="0" repeatcount="1" repeatto="0" sid="977474154865468" speed="5">
+                <animation framecount="1" loop="0" name="Player" pingpong="0" repeatcount="1" repeatto="0" sid="977474154865468" speed="5">
                     <frame duration="1" hotspotX="0.4375" hotspotY="0.859375">
                         <image-point name="ShootFrom" x="0.46875" y="0.515625" />
                         <collision-poly>
@@ -806,6 +869,35 @@
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="767806641352206" speed="5">
                     <frame duration="1" hotspotX="0" hotspotY="0" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="HouseGround" sid="286906666665876">
+            <plugin id="TiledBg" />
+            <texture />
+        </object-type>
+        <object-type name="TableShadow" sid="816822698965907">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="202529062782515" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="0.75">
+                        <collision-poly>
+                            <point x="0" y="0.25" />
+                            <point x="0.5" y="0.25" />
+                            <point x="0.5" y="0.5" />
+                            <point x="0" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+                <animation framecount="1" loop="0" name="Up" pingpong="0" repeatcount="1" repeatto="0" sid="839414858505377" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="0.75">
+                        <collision-poly>
+                            <point x="0" y="0.25" />
+                            <point x="0.5" y="0.25" />
+                            <point x="0.5" y="0.5" />
+                            <point x="0" y="0.5" />
+                        </collision-poly>
+                    </frame>
                 </animation>
             </animation-folder>
         </object-type>

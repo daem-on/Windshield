@@ -9,7 +9,24 @@
                     <conditions>
                         <condition id="-2" name="On start of layout" sid="334604810889842" type="System" />
                     </conditions>
-                    <actions />
+                    <actions>
+                        <action id="-12" name="Set group active" sid="703187742621059" type="System">
+                            <param id="0" name="Group name">&quot;OldDemo&quot;</param>
+                            <param id="1" name="State">0</param>
+                        </action>
+                        <action id="-12" name="Set group active" sid="524115422736132" type="System">
+                            <param id="0" name="Group name">&quot;Level2&quot;</param>
+                            <param id="1" name="State">0</param>
+                        </action>
+                        <action id="-12" name="Set group active" sid="677195152041101" type="System">
+                            <param id="0" name="Group name">&quot;FBI&quot;</param>
+                            <param id="1" name="State">0</param>
+                        </action>
+                        <action id="-12" name="Set group active" sid="147540629643835" type="System">
+                            <param id="0" name="Group name">&quot;Friend&quot;</param>
+                            <param id="1" name="State">0</param>
+                        </action>
+                    </actions>
                     <sub-events>
                         <event-block sid="555345312666397">
                             <conditions>
@@ -67,6 +84,21 @@
                             <actions>
                                 <action id="-12" name="Set group active" sid="855194199108212" type="System">
                                     <param id="0" name="Group name">&quot;Testing&quot;</param>
+                                    <param id="1" name="State">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="892862347260466">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="614345474730810" type="System">
+                                    <param id="0" name="First value">LayoutName</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Second value">&quot;Friend&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-12" name="Set group active" sid="910220212592688" type="System">
+                                    <param id="0" name="Group name">&quot;Friend&quot;</param>
                                     <param id="1" name="State">1</param>
                                 </action>
                             </actions>
@@ -443,12 +475,42 @@
                         <action id="-16" name="Wait" sid="175217778524573" type="System">
                             <param id="0" name="Seconds">0.5</param>
                         </action>
-                        <action id="-2" name="Go to layout" sid="364048987241087" type="System">
-                            <param id="0" name="Layout">Friend</param>
-                        </action>
                         <action id="-9" name="Set value" sid="273319954016987" type="System">
                             <param id="0" name="Variable">Progress</param>
                             <param id="1" name="Value">9</param>
+                        </action>
+                        <action id="-2" name="Go to layout" sid="289628818993730" type="System">
+                            <param id="0" name="Layout">Friend</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" inactive="1" sid="617121709254161" title="Friend">
+            <sub-events>
+                <event-block sid="935305159470395">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="303460754299746" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-13" name="Set boolean" sid="253681195638142" type="Player">
+                            <param id="0" name="Instance variable">ActorWait</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="545031666009736" type="System">
+                            <param id="0" name="Variable">Progress</param>
+                            <param id="1" name="Value">10</param>
+                        </action>
+                        <action behavior="CustomMovement" id="2" name="Set speed" sid="780189109785127" type="Player">
+                            <param id="0" name="Which">1</param>
+                            <param id="1" name="Speed">200</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="753904973197195" type="System">
+                            <param id="0" name="Seconds">3.8</param>
+                        </action>
+                        <action behavior="CustomMovement" id="2" name="Set speed" sid="613187785875822" type="Player">
+                            <param id="0" name="Which">1</param>
+                            <param id="1" name="Speed">0</param>
                         </action>
                     </actions>
                 </event-block>

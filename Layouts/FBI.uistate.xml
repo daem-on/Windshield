@@ -4,11 +4,11 @@
 It is entirely optional and the project will load without it.  If you are placing the project under source control,
 you probably do not want to add any .uistate.xml files to the repository.-->
     <camera>
-        <position-x>952.21</position-x>
-        <position-y>539.425</position-y>
-        <position-z>255.072</position-z>
-        <lookat-x>952.21</lookat-x>
-        <lookat-y>539.425</lookat-y>
+        <position-x>462.587</position-x>
+        <position-y>467.549</position-y>
+        <position-z>191.639</position-z>
+        <lookat-x>462.587</lookat-x>
+        <lookat-y>467.549</lookat-y>
         <lookat-z>0</lookat-z>
     </camera>
     <snap-to-grid>1</snap-to-grid>
@@ -28,9 +28,9 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <layer locked="0" name="Bottom" parallax-in-editor="0" visible="1" />
         <layer locked="0" name="Shadow" parallax-in-editor="0" visible="1" />
         <layer locked="0" name="Game" parallax-in-editor="0" visible="1" />
-        <layer locked="0" name="UI" parallax-in-editor="0" visible="1" />
+        <layer locked="1" name="UI" parallax-in-editor="0" visible="0" />
         <layer locked="1" name="Message" parallax-in-editor="0" visible="0" />
-        <layer locked="0" name="Mission" parallax-in-editor="0" visible="1" />
-        <layer locked="0" name="Fading" parallax-in-editor="0" visible="1" />
+        <layer locked="1" name="Mission" parallax-in-editor="0" visible="0" />
+        <layer locked="1" name="Fading" parallax-in-editor="0" visible="0" />
     </layers>
 </c2uistate>

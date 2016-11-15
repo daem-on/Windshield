@@ -11,9 +11,11 @@ you probably do not want to add any .uistate.xml files to the repository.-->
     </configurations>
     <open-tabs>
         <layout order="0">FirstHeist</layout>
-        <layout active="1" order="1">FBI</layout>
-        <event-sheet order="2">Engine</event-sheet>
-        <event-sheet order="3">Story</event-sheet>
+        <layout order="1">FBI</layout>
+        <layout active="1" order="2">Friend</layout>
+        <layout order="5">Testing</layout>
+        <event-sheet order="3">Engine</event-sheet>
+        <event-sheet order="4">Story</event-sheet>
     </open-tabs>
     <properties>
         <property expanded="1" name="About" />
@@ -67,5 +69,6 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <folder expanded="1" path="animation-folder/GoldStatue/" />
         <folder expanded="1" path="animation-folder/Actor/" />
         <folder expanded="1" path="animation-folder/Fade/" />
+        <folder expanded="1" path="animation-folder/TableShadow/" />
     </folders-expanded>
 </c2uistate>

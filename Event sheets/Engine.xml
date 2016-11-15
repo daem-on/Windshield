@@ -1003,6 +1003,37 @@
                         </action>
                     </actions>
                 </event-block>
+                <event-block sid="537569069802202">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="254444180907746" type="System" />
+                        <condition id="-11" name="For Each" sid="759039652669694" type="System">
+                            <param id="0" name="Object">Table</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="616539149370711" type="System">
+                            <param id="0" name="Object to create">TableShadow</param>
+                            <param id="1" name="Layer">LayerIndex(&quot;Shadow&quot;)</param>
+                            <param id="2" name="X">Table.X</param>
+                            <param id="3" name="Y">Table.Y</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="477830040214478">
+                            <conditions>
+                                <condition id="2" name="Is playing" sid="873278794882501" type="Table">
+                                    <param id="0" name="Animation">&quot;Up&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Set animation" sid="488574716152470" type="TableShadow">
+                                    <param id="0" name="Animation">&quot;Up&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
             </sub-events>
         </event-group>
         <event-group description="" sid="163795944872153" title="World">
