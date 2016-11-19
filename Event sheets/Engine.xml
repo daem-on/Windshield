@@ -205,7 +205,7 @@
                     </conditions>
                     <actions>
                         <action behavior="8Direction" id="4" name="Set max speed" sid="843399173827402" type="Player">
-                            <param id="0" name="Max Speed">200</param>
+                            <param id="0" name="Max Speed">300</param>
                         </action>
                         <action id="11" name="Set collisions enabled" sid="372689819891170" type="Player">
                             <param id="0" name="Collisions">1</param>
@@ -701,6 +701,10 @@
                                             <param id="0" name="Instance variable">Reload</param>
                                             <param id="1" name="Value">1</param>
                                         </action>
+                                        <action id="0" name="Call function" sid="921431081729237" type="Function">
+                                            <param id="0" name="Name">&quot;ShootPistol&quot;</param>
+                                            <param id="1" name="Parameter {n}"></param>
+                                        </action>
                                     </actions>
                                 </event-block>
                             </sub-events>
@@ -745,6 +749,10 @@
                                         <action id="-12" name="Subtract from" sid="624985355921296" type="Player">
                                             <param id="0" name="Instance variable">Reload</param>
                                             <param id="1" name="Value">1</param>
+                                        </action>
+                                        <action id="0" name="Call function" sid="739635323344514" type="Function">
+                                            <param id="0" name="Name">&quot;ShootAK&quot;</param>
+                                            <param id="1" name="Parameter {n}"></param>
                                         </action>
                                     </actions>
                                 </event-block>
@@ -806,6 +814,10 @@
                                                 <action id="-12" name="Subtract from" sid="210993620294425" type="Player">
                                                     <param id="0" name="Instance variable">Reload</param>
                                                     <param id="1" name="Value">1</param>
+                                                </action>
+                                                <action id="0" name="Call function" sid="684347871231955" type="Function">
+                                                    <param id="0" name="Name">&quot;ShootShotgun&quot;</param>
+                                                    <param id="1" name="Parameter {n}"></param>
                                                 </action>
                                             </actions>
                                         </event-block>
@@ -1047,6 +1059,15 @@
                         </condition>
                     </conditions>
                     <actions>
+                        <action id="-3" name="Create object" sid="506560632862079" type="System">
+                            <param id="0" name="Object to create">AshCheap</param>
+                            <param id="1" name="Layer">LayerIndex(&quot;game&quot;)</param>
+                            <param id="2" name="X">Bullet.X</param>
+                            <param id="3" name="Y">Bullet.Y</param>
+                        </action>
+                        <action id="-8" name="Set angle" sid="699260334902529" type="AshCheap">
+                            <param id="0" name="Angle">Bullet.Angle - 180</param>
+                        </action>
                         <action id="-9" name="Destroy" sid="520171210287367" type="Bullet" />
                     </actions>
                 </event-block>
@@ -1302,6 +1323,14 @@
                         <action behavior="Bullet" id="0" name="Set speed" sid="813894328261445" type="BloodStay">
                             <param id="0" name="Speed">random(200, 300)</param>
                         </action>
+                    </actions>
+                </event-block>
+                <event-block sid="307014260880394">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="441505310765393" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-24" name="Move to top" sid="133481493311076" type="AshCheap" />
                     </actions>
                 </event-block>
             </sub-events>
@@ -1637,6 +1666,152 @@
                         <action id="-4" name="Set layer visible" sid="431806131728500" type="System">
                             <param id="0" name="Layer">LayerIndex(&quot;Mission&quot;)</param>
                             <param id="1" name="Visibility">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="144143687458890" title="Game Feel">
+            <sub-events>
+                <event-block sid="141792809754429">
+                    <conditions>
+                        <condition id="0" name="On function" sid="678748339451002" type="Function">
+                            <param id="0" name="Name">&quot;ShootPistol&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="ScrollTo" id="0" name="Shake" sid="291793077097932" type="Player">
+                            <param id="0" name="Magnitude">3</param>
+                            <param id="1" name="Duration">0.2</param>
+                            <param id="2" name="Mode">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="945136917195151">
+                    <conditions>
+                        <condition id="0" name="On function" sid="931472850788252" type="Function">
+                            <param id="0" name="Name">&quot;ShootAK&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="ScrollTo" id="0" name="Shake" sid="796323223621492" type="Player">
+                            <param id="0" name="Magnitude">5</param>
+                            <param id="1" name="Duration">0.2</param>
+                            <param id="2" name="Mode">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="951368925892696">
+                    <conditions>
+                        <condition id="0" name="On function" sid="223892617323199" type="Function">
+                            <param id="0" name="Name">&quot;ShootShotgun&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="ScrollTo" id="0" name="Shake" sid="961538510184270" type="Player">
+                            <param id="0" name="Magnitude">12</param>
+                            <param id="1" name="Duration">0.3</param>
+                            <param id="2" name="Mode">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="118294911937943" title="Audio">
+            <sub-events>
+                <event-block sid="451765719424347">
+                    <conditions>
+                        <condition id="2" name="Mouse button is down" sid="262537803121866" type="Mouse">
+                            <param id="0" name="Mouse button">0</param>
+                        </condition>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="645677810320629" type="Player">
+                            <param id="0" name="Instance variable">Reloading</param>
+                        </condition>
+                        <condition id="-8" name="Compare two values" sid="447350675728814" type="System">
+                            <param id="0" name="First value">mid(str(Player.Inventory), Player.SelectedWeapon, 1)</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Second value">&quot;1&quot;</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" sid="577163970757697" type="Player">
+                            <param id="0" name="Instance variable">SelectedWeapon</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                        <condition id="-4" name="Trigger once while true" sid="391989071130428" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Play" sid="414847113762616" type="Audio">
+                            <param id="0" name="Audio file">ak</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;ak_cont&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="454484919213996">
+                    <conditions>
+                        <condition id="2" inverted="1" name="Mouse button is down" sid="553290034913818" type="Mouse">
+                            <param id="0" name="Mouse button">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="6" name="Stop" sid="436995660732301" type="Audio">
+                            <param id="0" name="Tag">&quot;ak_cont&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="461439642488566">
+                    <conditions>
+                        <condition id="-8" name="Is boolean instance variable set" sid="116748023781581" type="Player">
+                            <param id="0" name="Instance variable">Reloading</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="6" name="Stop" sid="705490718975585" type="Audio">
+                            <param id="0" name="Tag">&quot;ak_cont&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="657739030169231">
+                    <conditions>
+                        <condition id="0" name="On function" sid="162808870337195" type="Function">
+                            <param id="0" name="Name">&quot;ShootPistol&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Play" sid="552973172838151" type="Audio">
+                            <param id="0" name="Audio file">pistol</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;pistol&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="577730849966104">
+                    <conditions>
+                        <condition id="0" name="On function" sid="932150886090392" type="Function">
+                            <param id="0" name="Name">&quot;ShootShotgun&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Play" sid="185470749947804" type="Audio">
+                            <param id="0" name="Audio file">shotgun_fire</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;shotgun&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="209014188941271">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="468785203305232" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Play" sid="830282304756317" type="Audio">
+                            <param id="0" name="Audio file">meadow</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">-10</param>
+                            <param id="1" name="Tag (optional)">&quot;background&quot;</param>
                         </action>
                     </actions>
                 </event-block>

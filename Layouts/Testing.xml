@@ -43,7 +43,7 @@
                     <behavior-instances>
                         <behavior-instance type="Bullet">
                             <properties>
-                                <speed>1000</speed>
+                                <speed>2000</speed>
                                 <acceleration>0</acceleration>
                                 <gravity>0</gravity>
                                 <bounce-off-solids>No</bounce-off-solids>
@@ -277,36 +277,36 @@
                 </instance>
                 <instance type="AshCheap" uid="201">
                     <properties>
-                        <rate>50</rate>
-                        <spray-cone>360</spray-cone>
+                        <rate>10</rate>
+                        <spray-cone>100</spray-cone>
                         <type>One-shot</type>
                         <initial-particle-properties></initial-particle-properties>
                         <speed>100</speed>
-                        <size>4</size>
+                        <size>1</size>
                         <opacity>100</opacity>
-                        <grow-rate>0</grow-rate>
+                        <grow-rate>30</grow-rate>
                         <x-randomiser>0</x-randomiser>
                         <y-randomiser>0</y-randomiser>
-                        <speed-randomiser->0</speed-randomiser->
-                        <size-randomiser>0</size-randomiser>
+                        <speed-randomiser->50</speed-randomiser->
+                        <size-randomiser>3</size-randomiser>
                         <grow-rate-randomiser>0</grow-rate-randomiser>
                         <particle-lifetime-properties></particle-lifetime-properties>
-                        <acceleration>-100</acceleration>
+                        <acceleration>0</acceleration>
                         <gravity>0</gravity>
                         <angle-randomiser>0</angle-randomiser>
                         <speed-randomiser>600</speed-randomiser>
                         <opacity-randomiser>0</opacity-randomiser>
                         <destroy-mode>Fade to invisible</destroy-mode>
-                        <timeout>1.2</timeout>
+                        <timeout>0.3</timeout>
                     </properties>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>192</x>
+                        <x>224</x>
                         <y>512</y>
                         <z>0</z>
-                        <width>128</width>
-                        <height>128</height>
+                        <width>32</width>
+                        <height>32</height>
                         <depth>0</depth>
                         <hotspotX>0</hotspotX>
                         <hotspotY>0.5</hotspotY>

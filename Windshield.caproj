@@ -10,6 +10,7 @@
     <unique-id>2m2oqhlgof90t</unique-id>
     <saved-with-version>23300</saved-with-version>
     <used-plugins>
+        <plugin author="Scirra" id="Audio" version="1">Audio</plugin>
         <plugin author="Scirra" id="Browser" version="1">Browser</plugin>
         <plugin author="Scirra" id="Function" version="1">Function</plugin>
         <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
@@ -320,10 +321,10 @@
                     <frame duration="1" hotspotX="0" hotspotY="0" />
                 </animation>
                 <animation framecount="1" loop="0" name="Cooldown" pingpong="0" repeatcount="1" repeatto="0" sid="574279752554906" speed="5">
-                    <frame duration="1" hotspotX="0" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
                 </animation>
                 <animation framecount="1" loop="0" name="Reload" pingpong="0" repeatcount="1" repeatto="0" sid="879714573522401" speed="5">
-                    <frame duration="1" hotspotX="0" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0" hotspotY="0" />
                 </animation>
             </animation-folder>
         </object-type>
@@ -901,6 +902,9 @@
                 </animation>
             </animation-folder>
         </object-type>
+        <object-type name="Audio" sid="360168767289799">
+            <plugin id="Audio" />
+        </object-type>
     </object-folder>
     <families>
         <family name="IsoObject" plugin-id="Sprite" sid="901443341344332">
@@ -956,9 +960,37 @@
         <global-instance type="Mouse" uid="4" />
         <global-instance type="Browser" uid="8" />
         <global-instance type="Function" uid="98" />
+        <global-instance type="Audio" uid="179">
+            <properties>
+                <timescale-audio>Off</timescale-audio>
+                <saveload>All</saveload>
+                <play-in-background>No</play-in-background>
+                <positioned-audio></positioned-audio>
+                <panning-model>HRTF</panning-model>
+                <distance-model>Inverse</distance-model>
+                <listener-z-height>600</listener-z-height>
+                <reference-distance>600</reference-distance>
+                <maximum-distance>10000</maximum-distance>
+                <roll-off-factor>1</roll-off-factor>
+            </properties>
+        </global-instance>
     </global-instances>
-    <sounds-folder />
-    <music-folder />
+    <sounds-folder>
+        <file name="ak.m4a" />
+        <file name="ak.ogg" />
+        <file name="shotgun_cock.m4a" />
+        <file name="shotgun_cock.ogg" />
+        <file name="shotgun_fire.m4a" />
+        <file name="shotgun_fire.ogg" />
+        <file name="shotgun_reload.m4a" />
+        <file name="shotgun_reload.ogg" />
+        <file name="pistol.m4a" />
+        <file name="pistol.ogg" />
+    </sounds-folder>
+    <music-folder>
+        <file name="meadow.m4a" />
+        <file name="meadow.ogg" />
+    </music-folder>
     <files-folder>
         <file-folder name="Icons">
             <file name="icon-16.png" />
